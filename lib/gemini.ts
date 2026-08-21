@@ -58,6 +58,8 @@ export async function askGemini(
       contents: buildPrompt(faqCsv, userMessage),
       config: {
         abortSignal: controller.signal,
+        // งานนี้คือ FAQ lookup ล้วนๆ ไม่ต้องเหตุผลซับซ้อน ปิด thinking เพื่อให้ตอบทันภายใน timeout
+        thinkingConfig: { thinkingBudget: 0 },
       },
     });
 
