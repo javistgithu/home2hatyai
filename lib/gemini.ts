@@ -1,7 +1,8 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, ThinkingLevel } from "@google/genai";
 import {
   DEFAULT_REPLY,
   GEMINI_API_KEY,
+  GEMINI_MAX_OUTPUT_TOKENS,
   GEMINI_MODEL,
   GEMINI_TIMEOUT_MS,
 } from "./constants";
@@ -58,8 +59,10 @@ export async function askGemini(
       contents: buildPrompt(faqCsv, userMessage),
       config: {
         abortSignal: controller.signal,
-        // งานนี้คือ FAQ lookup ล้วนๆ ไม่ต้องเหตุผลซับซ้อน ปิด thinking เพื่อให้ตอบทันภายใน timeout
-        thinkingConfig: { thinkingBudget: 0 },
+        maxOutputTokens: GEMINI_MAX_OUTPUT_TOKENS,
+        // Gemini 3.5+ ไม่รองรับ thinkingBudget แล้ว (จะ error ทุก request) ต้องใช้ thinkingLevel แทน
+        // "minimal" คือค่าที่ใกล้เคียง "ปิด thinking" มากที่สุดสำหรับรุ่น 3.x
+        thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
       },
     });
 
