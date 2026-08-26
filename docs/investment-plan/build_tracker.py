@@ -7,15 +7,17 @@
 รันด้วย:  python3 build_tracker.py
 """
 import datetime as dt
+import os
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.formatting.rule import FormulaRule, CellIsRule
 
-OUT = "home2hatyai-plan-tracker.xlsx"
-START = dt.date(2026, 8, 26)      # วันเริ่มบันทึก
-NDAYS = 370
+OUT = os.environ.get("TRACKER_OUT", "home2hatyai-plan-tracker.xlsx")
+# วันเริ่มบันทึก และจำนวนวันที่เตรียมแถวไว้ (ตั้งทับได้ด้วย env var)
+START = dt.date.fromisoformat(os.environ.get("TRACKER_START", "2026-08-26"))
+NDAYS = int(os.environ.get("TRACKER_DAYS", "370"))
 FIRST, LAST = 3, 2 + NDAYS        # แถวข้อมูล 3..372
 
 F = "Arial"
@@ -648,8 +650,12 @@ dp.conditional_formatting.add(f"A{DR0}:N{DR1}", FormulaRule(
     formula=[f'$F{DR0}="โอนแล้ว"'], fill=PatternFill("solid", fgColor="DCFCE7")))
 dp.conditional_formatting.add(f"A{DR0}:N{DR1}", FormulaRule(
     formula=[f'$F{DR0}="หลุด/ปิด"'], font=Font(name=F, color="9CA3AF", strike=True)))
+# ค่าอ้างอิงในชีตเดียวกัน — Google Sheets ไม่รองรับการอ้างข้ามชีตใน conditional formatting
+put(dp, "P16", "เกณฑ์ดีลค้างนาน (วัน)", size=10, color=GREY, border=True)
+put(dp, "Q16", f"=ROUND({S['days']}*1.5,0)", fmt=NUM, bold=True, align="center",
+    color=GREEN, fill=CALC_FILL, border=True)
 dp.conditional_formatting.add(f"L{DR0}:L{DR1}", CellIsRule(
-    operator="greaterThan", formula=[f"{S['days']}*1.5"],
+    operator="greaterThan", formula=["$Q$16"],
     fill=PatternFill("solid", fgColor="FEE2E2"), font=Font(name=F, bold=True, color=RED)))
 
 
