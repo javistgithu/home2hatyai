@@ -10,16 +10,23 @@
   },
   "dependencies": {
     "@google/genai": "^2.18.0",
+    "@googlemaps/markerclusterer": "^2.6.2",
     "@line/bot-sdk": "^9.7.0",
-    "next": "^14.2.5",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.116.0",
+    "eslint-config-next": "^14.2.35",
+    "next": "^14.2.35",
     "papaparse": "^5.6.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.66.2",
     "@types/node": "^20.14.9",
     "@types/papaparse": "^5.5.2",
     "@types/react": "^18.3.3",
+    "tsx": "^4.23.13",
     "typescript": "^5.5.3"
   }
 }
