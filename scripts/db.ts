@@ -30,6 +30,14 @@ async function main() {
 
   const db = await getDb();
   console.log(`[db] ไดรเวอร์: ${db.driver}`);
+  if (db.driver === "pglite") {
+    // PGlite เก็บฐานข้อมูลเป็นไฟล์ในโฟลเดอร์เดียว และเปิดได้ทีละ process เท่านั้น
+    // ถ้ารันคำสั่งนี้พร้อมกับ `npm run dev` ที่เปิดค้างอยู่ ทั้งสองฝั่งจะเห็นข้อมูล
+    // คนละชุด แล้วงานที่เขียนไประหว่างนั้นจะหายไปเงียบๆ
+    console.log(
+      "[db] เตือน: ปิด `npm run dev` ก่อนรันคำสั่งนี้ — PGlite เปิดได้ทีละโปรแกรม"
+    );
+  }
 
   if (cmd === "status") {
     const installed = await isInstalled(db);

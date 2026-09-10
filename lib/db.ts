@@ -13,8 +13,13 @@
  *
  * ทั้งสองโหมดพูด SQL ภาษาเดียวกัน โค้ดธุรกิจจึงไม่ต้องรู้ว่าใช้ตัวไหนอยู่
  *
- * คำเตือน: PGlite ห้ามใช้ production บน serverless เพราะข้อมูลอยู่ในไฟล์
- * ของแต่ละ instance พอ instance ถูกรีไซเคิลข้อมูลหาย
+ * คำเตือน 2 ข้อของโหมด PGlite:
+ *   1. ห้ามใช้ production บน serverless เพราะข้อมูลอยู่ในไฟล์ของแต่ละ instance
+ *      พอ instance ถูกรีไซเคิลข้อมูลหาย
+ *   2. โฟลเดอร์ .pgdata เปิดได้ทีละ process เท่านั้น ถ้าเปิด `npm run dev` ค้างไว้
+ *      แล้วรัน `npm run db:migrate` พร้อมกัน ทั้งสองฝั่งจะเห็นข้อมูลคนละชุด
+ *      แล้วงานที่เขียนระหว่างนั้นจะหายไปโดยไม่มี error
+ * ทั้งสองข้อไม่มีผลกับ production ที่ต่อ Postgres จริงผ่าน DATABASE_URL
  */
 
 import type { Pool as PgPool, PoolClient } from "pg";

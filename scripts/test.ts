@@ -25,6 +25,7 @@ import {
   startCountSession, recordCount, postCountSession, getCountQueue,
 } from "../lib/pos/count";
 import { verifyLedgerIntegrity, getStockByProduct, transferStock } from "../lib/pos/stock";
+import { code128Svg } from "../lib/pos/barcode";
 
 // ------------------------------------------------------- ตัวรันเทสต์
 let passed = 0;
@@ -164,6 +165,41 @@ async function main() {
 
     const v = extractVat(107.5, 7);
     eq("ถอด VAT ยอดมีเศษแล้วบวกกลับได้เท่าเดิม", round2(v.base + v.vat), 107.5);
+  }
+
+  // -----------------------------------------------------------------
+  section("บาร์โค้ดป้ายชั้นวาง");
+  {
+    // ตรวจตามสเปก Code 128B จริง ไม่ใช่แค่ดูว่ามี SVG ออกมา
+    // ถ้าเช็คซัมผิด ป้ายทุกใบที่พิมพ์ไปติดชั้นจะสแกนไม่ติด
+    // แล้วพนักงานจะเลิกใช้ระบบตั้งแต่วันแรก โดยไม่มีใครรู้ว่าพังตรงไหน
+    //
+    // "CODE128" เป็นตัวอย่างมาตรฐานที่ตรวจสอบค่าได้:
+    //   เช็คซัม = (104 + 35x1 + 47x2 + 36x3 + 37x4 + 17x5 + 18x6 + 24x7) mod 103
+    //           = 850 mod 103 = 26  ->  ลายเส้น "321221"
+    const svg = code128Svg("CODE128", { moduleWidth: 1, height: 40, showText: false });
+
+    // ความกว้างรวม = (เริ่ม 1 + ข้อมูล 7 + เช็คซัม 1) x 11 โมดูล + จบ 13 โมดูล = 112
+    const width = Number(/width="(\d+)"/.exec(svg)?.[1]);
+    eq("ความกว้างบาร์โค้ดตรงตามสเปก (112 โมดูล)", width, 112);
+
+    // แถบดำแถบแรกต้องกว้าง 2 โมดูล (ลายเริ่มต้น B = 211214)
+    const firstBar = Number(/<rect x="0" y="0" width="(\d+)"/.exec(svg)?.[1]);
+    eq("ลายเริ่มต้น Code 128B ถูกต้อง", firstBar, 2);
+
+    // ตัวอักษรที่ Code 128B รองรับ ต้องเข้ารหัสได้หมด
+    check("รหัสช่องวางเข้ารหัสได้", code128Svg("S-A2-3").includes("<svg"));
+    check("รหัสสินค้าเข้ารหัสได้", code128Svg("BLB-LED9-E27-DL").includes("<svg"));
+    check("บาร์โค้ด EAN-13 เข้ารหัสได้", code128Svg("8850123400019").includes("<svg"));
+
+    // ภาษาไทยเข้ารหัส Code 128B ไม่ได้ ต้องแจ้งเตือนชัดเจน ไม่ใช่พิมพ์ป้ายเสียออกมา
+    let threw = false;
+    try { code128Svg("ชั้นวาง A"); } catch { threw = true; }
+    check("ตัวอักษรไทยต้อง error ไม่ใช่พิมพ์ป้ายที่สแกนไม่ได้ออกมา", threw);
+
+    // ความกว้างต้องคูณตามขนาดโมดูลที่ตั้ง (สแกนเนอร์บางรุ่นต้องการแถบกว้าง)
+    const wide = code128Svg("CODE128", { moduleWidth: 3, showText: false });
+    eq("ปรับความกว้างแถบได้", Number(/width="(\d+)"/.exec(wide)?.[1]), 336);
   }
 
   // -----------------------------------------------------------------
@@ -384,6 +420,10 @@ async function main() {
     check("ช่องที่ติดลบขึ้นคิวนับเป็นอันดับแรก",
       queue[0]?.qtyOnHand < 0 && queue[0]?.priority === 100,
       JSON.stringify(queue[0] ?? {}));
+    // จุดโชว์ต้องไม่มายึดคิวนับประจำวัน ไม่งั้นพนักงานจะเลิกดูคิวนี้
+    check("จุดโชว์ไม่เข้าคิวนับประจำ",
+      queue.every((q) => !q.locationCode.startsWith("D-")),
+      queue.map((q) => q.locationCode).join(","));
   }
 
   // -----------------------------------------------------------------
