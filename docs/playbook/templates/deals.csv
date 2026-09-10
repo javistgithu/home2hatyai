@@ -1,0 +1,2 @@
+deal_id,property_id,lead_id,offer_date,offer_price,agreed_price,contract_date,deposit_amount,bank,loan_amount_requested,appraisal_value,appraisal_date,approval_date,approved_amount,transfer_date,sale_price,buyer_closing_cost,seller_closing_cost,our_commission_paid,cobroke_commission,net_profit,status,lost_reason,notes
+D001,P001,L001,,,,,,,,,,,,,,,,,,,in_progress,,ตัวอย่างแถว ลบออกก่อนใช้จริง
