@@ -20,6 +20,11 @@
 | [06-data-and-linebot.md](06-data-and-linebot.md) | โครงสร้าง Google Sheet (8 แท็บ) + สเปกอัปเกรด LINE bot + PDPA | ทีมเทค |
 | [07-kpi-risk-launch.md](07-kpi-risk-launch.md) | KPI, จังหวะประชุม, ทะเบียนความเสี่ยง, แผนเปิดตัว 90 วัน | เจ้าของ / ผู้จัดการ |
 | [templates/](templates/) | ไฟล์ CSV ต้นแบบสำหรับ Google Sheet ทุกแท็บ | ตั้งระบบครั้งแรก |
+| [workflow-onepage.html](workflow-onepage.html) | หน้าเว็บสรุป workflow ทั้งระบบในหน้าเดียว สำหรับเปิดดูร่วมกันในทีม | ประชุม / อธิบายให้คนใหม่ |
+
+> หน้าเว็บสรุปเผยแพร่ไว้ที่ https://claude.ai/code/artifact/92151778-f1f2-46f1-a09b-fdf6ba4929a9
+> ไฟล์ Markdown ในโฟลเดอร์นี้คือฉบับจริงที่ใช้อ้างอิง ส่วนหน้าเว็บเป็นฉบับย่อสำหรับดูภาพรวม
+> ถ้าแก้เนื้อหา ให้แก้ที่ Markdown ก่อนเสมอ
 
 ---
 

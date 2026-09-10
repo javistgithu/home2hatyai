@@ -1,0 +1,907 @@
+<title>สายพานบ้านหาดใหญ่</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#EDECE7;
+  --surface:#FFFFFF;
+  --sunk:#E3E2DA;
+  --ink:#1A211E;
+  --ink-2:#5A625D;
+  --ink-3:#848B85;
+  --rule:#D3D2C8;
+  --rule-strong:#B8B7AC;
+  --accent:#0E6B6B;
+  --accent-ink:#0A5252;
+  --accent-wash:#DCE8E6;
+  --clay:#A8532B;
+  --clay-wash:#F0E2D9;
+  --g-a:#0E6B6B;
+  --g-b:#4E8A50;
+  --g-c:#8E6B08;
+  --g-d:#A8532B;
+  --g-e:#8A2B24;
+  --shadow:0 1px 2px rgba(26,33,30,.06), 0 8px 24px -18px rgba(26,33,30,.4);
+  --display:"Bai Jamjuree","Trebuchet MS",sans-serif;
+  --body:"IBM Plex Sans Thai","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#141917;
+    --surface:#1C2320;
+    --sunk:#232B27;
+    --ink:#E7E9E3;
+    --ink-2:#A3ABA4;
+    --ink-3:#7B837C;
+    --rule:#2F3833;
+    --rule-strong:#414B45;
+    --accent:#4BAAA5;
+    --accent-ink:#6FC4BE;
+    --accent-wash:#17332F;
+    --clay:#D08154;
+    --clay-wash:#33231A;
+    --g-a:#4BAAA5;
+    --g-b:#7BB86B;
+    --g-c:#C9A23A;
+    --g-d:#D08154;
+    --g-e:#D96A5E;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141917;
+  --surface:#1C2320;
+  --sunk:#232B27;
+  --ink:#E7E9E3;
+  --ink-2:#A3ABA4;
+  --ink-3:#7B837C;
+  --rule:#2F3833;
+  --rule-strong:#414B45;
+  --accent:#4BAAA5;
+  --accent-ink:#6FC4BE;
+  --accent-wash:#17332F;
+  --clay:#D08154;
+  --clay-wash:#33231A;
+  --g-a:#4BAAA5;
+  --g-b:#7BB86B;
+  --g-c:#C9A23A;
+  --g-d:#D08154;
+  --g-e:#D96A5E;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--body);font-size:15px;line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 96px}
+
+/* ---------- masthead ---------- */
+.mast{padding:56px 0 40px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:var(--body);font-weight:500;font-size:12.5px;letter-spacing:.02em;
+  color:var(--accent);margin:0 0 18px;
+}
+h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(30px,4.6vw,50px);line-height:1.16;letter-spacing:-.01em;
+  margin:0 0 18px;max-width:19ch;text-wrap:balance;
+}
+.standfirst{font-size:17px;color:var(--ink-2);margin:0;max-width:60ch;line-height:1.68}
+.standfirst b{color:var(--ink);font-weight:600}
+.meta{
+  display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:26px;
+  font-size:12.5px;color:var(--ink-3);
+}
+.meta span{display:flex;gap:7px;align-items:baseline}
+.meta span i{font-style:normal;color:var(--accent)}
+
+/* ---------- thesis ---------- */
+.thesis{
+  margin:40px 0 0;padding:26px 28px;background:var(--accent-wash);
+  border-left:3px solid var(--accent);border-radius:2px 8px 8px 2px;
+}
+.thesis p{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(17px,2.1vw,21px);line-height:1.5;text-wrap:balance}
+.thesis small{display:block;margin-top:12px;font-family:var(--body);font-weight:400;font-size:14px;color:var(--ink-2);line-height:1.68}
+
+/* ---------- section ---------- */
+section{padding-top:64px;scroll-margin-top:20px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sec-num{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.1em}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(21px,2.6vw,27px);margin:0;letter-spacing:-.005em}
+.sec-sub{color:var(--ink-2);margin:0 0 28px;max-width:62ch;font-size:14.5px}
+
+/* ---------- figure ---------- */
+figure{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:24px 20px 18px;box-shadow:var(--shadow)}
+.fig-scroll{overflow-x:auto}
+figure svg{display:block;width:100%;min-width:660px;height:auto;color:var(--ink)}
+figcaption{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule);font-size:13.5px;color:var(--ink-2);line-height:1.65}
+figcaption b{color:var(--ink);font-weight:600}
+
+/* ---------- stage layout ---------- */
+.stage-layout{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:1020px){
+  .stage-layout{grid-template-columns:196px 1fr;gap:44px;align-items:start}
+}
+.rail{display:none}
+@media(min-width:1020px){
+  .rail{display:block;position:sticky;top:24px}
+}
+.rail ol{list-style:none;margin:0;padding:0;position:relative}
+.rail ol::before{content:"";position:absolute;left:14px;top:12px;bottom:12px;width:1px;background:var(--rule)}
+.rail li{position:relative;padding:0}
+.rail a{
+  display:flex;gap:12px;align-items:baseline;padding:7px 0 7px 0;
+  text-decoration:none;color:var(--ink-2);font-size:13.5px;line-height:1.4;
+}
+.rail a code{
+  font-family:var(--mono);font-size:11px;width:29px;flex:none;text-align:center;
+  color:var(--ink-3);background:var(--ground);position:relative;z-index:1;
+}
+.rail a:hover{color:var(--accent)}
+.rail a:hover code{color:var(--accent)}
+.rail a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+.stages{display:flex;flex-direction:column;gap:20px}
+.stage{
+  background:var(--surface);border:1px solid var(--rule);border-radius:10px;
+  padding:22px 24px 20px;box-shadow:var(--shadow);scroll-margin-top:20px;
+}
+.stage-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:4px}
+.stage-code{
+  font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.08em;
+  color:var(--surface);background:var(--accent);padding:3px 8px;border-radius:3px;
+}
+.stage h3{font-family:var(--display);font-weight:600;font-size:19px;margin:0;letter-spacing:-.005em}
+.stage-owner{font-size:12px;color:var(--ink-3);margin-left:auto}
+.stage-lede{margin:0 0 16px;color:var(--ink-2);font-size:14.5px}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin:0 0 18px;
+}
+.fact{background:var(--surface);padding:10px 13px}
+.fact dt{font-size:11.5px;color:var(--ink-3);margin:0 0 3px;line-height:1.4}
+.fact dd{margin:0;font-size:13.5px;line-height:1.5;font-weight:500}
+.fact dd.num{font-variant-numeric:tabular-nums;color:var(--accent-ink);font-weight:600}
+
+.steps{margin:0 0 4px;padding:0;list-style:none;counter-reset:st}
+.steps li{
+  counter-increment:st;position:relative;padding:0 0 0 30px;margin-bottom:9px;font-size:14.5px;line-height:1.68;
+}
+.steps li::before{
+  content:counter(st);position:absolute;left:0;top:.30em;
+  font-family:var(--mono);font-size:10.5px;color:var(--accent);
+  border:1px solid var(--rule-strong);border-radius:50%;
+  width:19px;height:19px;display:grid;place-items:center;line-height:1;
+}
+.steps b{font-weight:600}
+
+.gate{
+  margin-top:16px;padding:11px 15px;background:var(--sunk);
+  border-left:2px solid var(--accent);border-radius:0 5px 5px 0;font-size:13.5px;line-height:1.6;
+}
+.gate strong{font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--accent);display:block;margin-bottom:2px}
+.kill{
+  margin-top:10px;padding:11px 15px;background:var(--clay-wash);
+  border-left:2px solid var(--clay);border-radius:0 5px 5px 0;font-size:13.5px;line-height:1.6;
+}
+.kill strong{font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--clay);display:block;margin-bottom:2px}
+
+/* ---------- flood ramp ---------- */
+.ramp{display:grid;gap:10px;margin:0}
+@media(min-width:760px){.ramp{grid-template-columns:repeat(5,1fr)}}
+.grade{background:var(--surface);border:1px solid var(--rule);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.grade-bar{height:5px}
+.grade-body{padding:14px 15px 15px;display:flex;flex-direction:column;gap:6px;flex:1}
+.grade-letter{font-family:var(--display);font-weight:700;font-size:26px;line-height:1}
+.grade-depth{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.grade-rule{font-size:13.5px;line-height:1.55;color:var(--ink-2);flex:1}
+.grade-act{font-size:12.5px;font-weight:500;padding-top:9px;border-top:1px solid var(--rule);font-variant-numeric:tabular-nums}
+
+/* ---------- grade cards (buyers) ---------- */
+.buyers{display:grid;gap:12px;margin:0}
+@media(min-width:640px){.buyers{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.buyers{grid-template-columns:repeat(4,1fr)}}
+.buyer{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:16px 17px;display:flex;flex-direction:column;gap:9px}
+.buyer-head{display:flex;align-items:baseline;gap:9px}
+.buyer-letter{font-family:var(--display);font-weight:700;font-size:22px;line-height:1;color:var(--accent)}
+.buyer-name{font-weight:600;font-size:14.5px}
+.buyer p{margin:0;font-size:13.5px;line-height:1.6;color:var(--ink-2);flex:1}
+.buyer dl{margin:0;padding-top:10px;border-top:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:12.5px}
+.buyer dt{color:var(--ink-3);font-size:12px;align-self:center;white-space:nowrap}
+.buyer dd{margin:0;font-weight:500;font-variant-numeric:tabular-nums}
+
+/* ---------- calc ---------- */
+.calc{
+  background:var(--surface);border:1px solid var(--rule);border-radius:10px;
+  padding:22px 24px;box-shadow:var(--shadow);overflow-x:auto;
+}
+.calc table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;min-width:420px}
+.calc td{padding:5px 0;border:0}
+.calc td:last-child{text-align:right;white-space:nowrap;padding-left:20px}
+.calc .lbl{font-family:var(--body);font-size:13.5px}
+.calc .sub .lbl{padding-left:18px;color:var(--ink-2)}
+.calc .sub td{color:var(--ink-2);font-size:12.5px}
+.calc .div td{border-bottom:1px solid var(--rule);padding:0;height:8px}
+.calc .tot td{padding-top:12px;font-weight:600;font-size:15px;color:var(--accent-ink)}
+.calc .tot .lbl{font-family:var(--display);font-size:15px}
+.verdicts{display:grid;gap:8px;margin-top:20px;padding-top:18px;border-top:1px solid var(--rule)}
+.verdict{display:grid;grid-template-columns:auto auto 1fr;gap:12px;align-items:baseline;font-size:13.5px}
+.verdict code{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:13px}
+.verdict .mark{font-weight:600;font-size:13px;white-space:nowrap}
+.v-ok .mark{color:var(--g-a)} .v-warn .mark{color:var(--g-c)} .v-no .mark{color:var(--g-e)}
+
+/* ---------- table ---------- */
+.tbl-scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:10px;box-shadow:var(--shadow)}
+table.data{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+table.data th,table.data td{padding:11px 16px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+table.data thead th{
+  font-size:12px;font-weight:500;color:var(--ink-3);background:var(--sunk);white-space:nowrap;
+}
+table.data tbody tr:last-child td{border-bottom:0}
+table.data td.n{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600;color:var(--accent-ink)}
+table.data td.key{font-weight:600}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:3px;background:var(--accent-wash);color:var(--accent-ink)}
+
+/* ---------- timeline ---------- */
+.timeline{display:grid;gap:14px}
+@media(min-width:900px){.timeline{grid-template-columns:repeat(3,1fr)}}
+.month{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px 21px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow)}
+.month-head{display:flex;align-items:baseline;gap:10px;padding-bottom:11px;border-bottom:1px solid var(--rule)}
+.month-num{font-family:var(--display);font-weight:600;font-size:13px;color:var(--accent)}
+.month h3{font-family:var(--display);font-weight:600;font-size:17px;margin:0}
+.month ul{margin:0;padding:0 0 0 17px;font-size:13.5px;line-height:1.62;color:var(--ink-2)}
+.month li{margin-bottom:6px}
+.month li b{color:var(--ink);font-weight:600}
+.month-goal{margin-top:auto;padding:11px 13px;background:var(--sunk);border-radius:6px;font-size:12.5px;line-height:1.55}
+.month-goal strong{font-size:11.5px;font-weight:600;color:var(--ink-3);display:block;margin-bottom:3px}
+
+/* ---------- killers ---------- */
+.killers{margin:0;padding:0;list-style:none;counter-reset:k;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.killers li{counter-increment:k;background:var(--surface);padding:14px 18px 14px 52px;position:relative;font-size:14.5px;line-height:1.6}
+.killers li::before{
+  content:counter(k);position:absolute;left:18px;top:14px;
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--clay);
+}
+.killers li b{font-weight:600}
+.killers li small{display:block;color:var(--ink-2);font-size:13px;margin-top:2px}
+
+/* ---------- notes / footer ---------- */
+.caveat{
+  margin-top:28px;padding:18px 20px;border:1px dashed var(--rule-strong);border-radius:8px;
+  font-size:13.5px;line-height:1.66;color:var(--ink-2);
+}
+.caveat b{color:var(--ink);font-weight:600}
+.caveat ul{margin:8px 0 0;padding-left:19px}
+.caveat li{margin-bottom:4px}
+footer{margin-top:72px;padding-top:26px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-3);line-height:1.7}
+footer code{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+a{color:var(--accent-ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">คู่มือปฏิบัติการ · บ้านมือสองรีโนเวท · อ.หาดใหญ่ จ.สงขลา</p>
+  <h1>สายพานเปลี่ยนผู้เช่า<br>ให้เป็นเจ้าของบ้าน</h1>
+  <p class="standfirst">
+    ระบบงาน 9 สเตจสำหรับธุรกิจซื้อ–รีโนเวท–ขายบ้านมือสองในหาดใหญ่
+    ที่ขายให้ <b>คนซึ่งเช่าบ้านอยู่และอยากมีบ้านของตัวเอง</b>
+    หน้านี้คือภาพรวมของทั้งเครื่อง — รายละเอียดเต็มอยู่ในคู่มือ 7 เล่มในโปรเจกต์
+  </p>
+  <div class="meta">
+    <span><i>◆</i> 9 สเตจ + สเตจตั้งระบบ</span>
+    <span><i>◆</i> เกรดน้ำท่วม A–E</span>
+    <span><i>◆</i> ลูกค้า 4 เกรดตามความพร้อมกู้</span>
+    <span><i>◆</i> 8 แท็บข้อมูล</span>
+  </div>
+
+  <div class="thesis">
+    <p>เราไม่ได้ขายบ้าน เราขายการเปลี่ยนสถานะจาก “ผู้เช่า” เป็น “เจ้าของ”</p>
+    <small>
+      สินค้าคือบ้าน แต่สิ่งที่ลูกค้ากลุ่มนี้จ่ายเงินให้จริงคือ <b>การพาเขาให้กู้ผ่าน</b>
+      คู่แข่งลอกบ้านสวยของเราได้ใน 1 เดือน แต่ลอกฐานลูกค้าที่เราปั้นเครดิตมา 2 ปีไม่ได้
+    </small>
+  </div>
+</header>
+
+<!-- ============ THE MACHINE ============ -->
+<section id="machine">
+  <div class="sec-head"><span class="sec-num">01</span><h2>เครื่องทั้งเครื่อง</h2></div>
+  <p class="sec-sub">สองสายพานที่วิ่งขนานกันแล้วมาบรรจบที่วันโอน — และเส้นที่ทำให้ธุรกิจนี้ทบต้นได้</p>
+
+  <figure>
+    <div class="fig-scroll">
+    <svg viewBox="0 0 890 300" role="img" aria-label="แผนผังสายพานธุรกิจ: สายทรัพย์ S1 หาของ ถึง S4 รีโนเวท และสายลูกค้า S5 การตลาด ถึง S7 ปั้นเครดิต วิ่งขนานกันแล้วมาบรรจบที่ S8 ปิดการขายและโอน ต่อด้วย S9 หลังการขาย ซึ่งป้อนลูกค้าที่ยังไม่พร้อมและข้อมูลความต้องการจริงกลับไปที่ S1 และจำนวนลูกค้าเกรด A/B จาก S6 เป็นเงื่อนไขอนุมัติซื้อที่ S2">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+          <polygon points="0,0 10,4 0,8" fill="currentColor"/>
+        </marker>
+        <marker id="ar-a" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="8" markerHeight="7" orient="auto-start-reverse">
+          <polygon points="0,0 10,4 0,8" fill="#0E6B6B"/>
+        </marker>
+      </defs>
+
+      <!-- lane labels -->
+      <text y="22" font-size="10.5" fill="currentColor" opacity=".55"><tspan x="30" font-family="IBM Plex Mono, monospace" letter-spacing="1.4">SUPPLY</tspan><tspan font-family="IBM Plex Sans Thai, sans-serif" font-size="11.5" dx="8">· สายทรัพย์</tspan></text>
+      <text y="158" font-size="10.5" fill="currentColor" opacity=".55"><tspan x="30" font-family="IBM Plex Mono, monospace" letter-spacing="1.4">DEMAND</tspan><tspan font-family="IBM Plex Sans Thai, sans-serif" font-size="11.5" dx="8">· สายลูกค้า</tspan></text>
+
+      <!-- supply lane boxes -->
+      <g fill="none" stroke="currentColor" stroke-width="1" opacity=".92">
+        <rect x="30"  y="56" width="130" height="58" rx="5"/>
+        <rect x="186" y="56" width="130" height="58" rx="5"/>
+        <rect x="342" y="56" width="130" height="58" rx="5"/>
+        <rect x="498" y="56" width="130" height="58" rx="5"/>
+        <rect x="30"  y="166" width="182" height="58" rx="5"/>
+        <rect x="238" y="166" width="182" height="58" rx="5"/>
+        <rect x="446" y="166" width="182" height="58" rx="5"/>
+        <rect x="720" y="228" width="150" height="58" rx="5"/>
+      </g>
+      <rect x="720" y="100" width="150" height="80" rx="5" fill="#0E6B6B" fill-opacity=".10" stroke="#0E6B6B" stroke-width="1.6"/>
+
+      <g font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1" fill="currentColor" opacity=".55" text-anchor="middle">
+        <text x="95"  y="76">S1</text>
+        <text x="251" y="76">S2</text>
+        <text x="407" y="76">S3</text>
+        <text x="563" y="76">S4</text>
+        <text x="121" y="186">S5</text>
+        <text x="329" y="186">S6</text>
+        <text x="537" y="186">S7</text>
+        <text x="795" y="248">S9</text>
+      </g>
+      <text x="795" y="124" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1" fill="#0E6B6B" text-anchor="middle">S8</text>
+
+      <g font-family="IBM Plex Sans Thai, sans-serif" font-size="12.5" fill="currentColor" text-anchor="middle">
+        <text x="95"  y="97">หาของ</text>
+        <text x="251" y="97">คัดดีล + คำนวณ</text>
+        <text x="407" y="97">ซื้อ + นิติกรรม</text>
+        <text x="563" y="97">รีโนเวท</text>
+        <text x="121" y="207">การตลาด + ประกาศขาย</text>
+        <text x="329" y="207">รับลูกค้า + คัดเกรด</text>
+        <text x="537" y="207">ปั้นเครดิต + ยื่นกู้</text>
+        <text x="795" y="269">หลังการขาย + บอกต่อ</text>
+      </g>
+      <g font-family="IBM Plex Sans Thai, sans-serif" font-size="12.5" fill="#0E6B6B" text-anchor="middle" font-weight="600">
+        <text x="795" y="146">ปิดการขาย</text>
+        <text x="795" y="164">+ โอน</text>
+      </g>
+
+      <!-- intra-lane arrows -->
+      <g stroke="currentColor" stroke-width="1.1" fill="none" marker-end="url(#ar)" opacity=".55">
+        <line x1="160" y1="85" x2="184" y2="85"/>
+        <line x1="316" y1="85" x2="340" y2="85"/>
+        <line x1="472" y1="85" x2="496" y2="85"/>
+        <line x1="212" y1="195" x2="236" y2="195"/>
+        <line x1="420" y1="195" x2="444" y2="195"/>
+      </g>
+
+      <!-- convergence -->
+      <g stroke="#0E6B6B" stroke-width="1.4" fill="none" marker-end="url(#ar-a)">
+        <path d="M 628 85 H 686 V 124 H 717"/>
+        <path d="M 628 195 H 686 V 156 H 717"/>
+        <line x1="795" y1="180" x2="795" y2="225"/>
+      </g>
+      <g font-family="IBM Plex Sans Thai, sans-serif" font-size="10.5" fill="#0E6B6B">
+        <text x="630" y="77">บ้านพร้อมขาย</text>
+        <text x="630" y="215">ลูกค้าที่กู้ผ่าน</text>
+      </g>
+
+      <!-- demand constrains supply -->
+      <path d="M 329 166 V 140 H 251 V 117" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3" fill="none" marker-end="url(#ar)" opacity=".7"/>
+      <text x="341" y="136" font-family="IBM Plex Sans Thai, sans-serif" font-size="10.5" fill="currentColor" opacity=".75">เงื่อนไขอนุมัติซื้อ: ต้องมีลูกค้าเกรด A/B ที่ตรงสเปก ≥ 5 คน</text>
+
+      <!-- feedback loop -->
+      <path d="M 720 257 H 15 V 42 H 95 V 53" stroke="currentColor" stroke-width="1.1" fill="none" marker-end="url(#ar)" opacity=".55" stroke-dasharray="4 3"/>
+      <text x="366" y="249" font-family="IBM Plex Sans Thai, sans-serif" font-size="10.5" fill="currentColor" opacity=".7" text-anchor="middle">ลูกค้าเกรด B/C ที่ยังไม่พร้อม + สิ่งที่ตลาดต้องการจริง → กำหนดว่ารอบหน้าจะซื้อบ้านแบบไหน</text>
+    </svg>
+    </div>
+    <figcaption>
+      <b>สายลูกค้าต้องนำหน้าสายทรัพย์เสมอ</b> — เส้นประที่พุ่งขึ้นจาก S6 ไป S2 คือกฎที่ป้องกันความผิดพลาดร้ายแรงที่สุดของธุรกิจนี้
+      คือการซื้อบ้านก่อนแล้วค่อยหาคนซื้อ ส่วนเส้นประที่วิ่งกลับจาก S9 ไป S1 คือสิ่งที่ทำให้ธุรกิจทบต้น
+      นายหน้าทั่วไปทิ้งลูกค้าที่กู้ไม่ผ่าน เราเก็บไว้ปั้น 6–24 เดือน แล้วซื้อบ้านให้ตรงกับสิ่งที่พวกเขาซื้อไหว
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ============ STAGES ============ -->
+<section id="stages">
+  <div class="sec-head"><span class="sec-num">02</span><h2>ทีละสเตจ</h2></div>
+  <p class="sec-sub">ทุกสเตจมีเจ้าของงาน เวลามาตรฐาน และเกณฑ์ผ่านเข้าสเตจถัดไป ห้ามข้ามสเตจ และห้ามให้ทรัพย์หรือลูกค้าค้างอยู่โดยไม่มีนัดถัดไปที่ระบุวันที่</p>
+
+  <div class="stage-layout">
+    <nav class="rail" aria-label="สารบัญสเตจ">
+      <ol>
+        <li><a href="#s0"><code>S0</code> ตั้งระบบ</a></li>
+        <li><a href="#s1"><code>S1</code> หาของ</a></li>
+        <li><a href="#s2"><code>S2</code> คัดดีล + คำนวณ</a></li>
+        <li><a href="#s3"><code>S3</code> ซื้อ + นิติกรรม</a></li>
+        <li><a href="#s4"><code>S4</code> รีโนเวท</a></li>
+        <li><a href="#s5"><code>S5</code> การตลาด</a></li>
+        <li><a href="#s6"><code>S6</code> รับลูกค้า + คัดเกรด</a></li>
+        <li><a href="#s7"><code>S7</code> ปั้นเครดิต + ยื่นกู้</a></li>
+        <li><a href="#s8"><code>S8</code> ปิดการขาย + โอน</a></li>
+        <li><a href="#s9"><code>S9</code> หลังการขาย</a></li>
+      </ol>
+    </nav>
+
+    <div class="stages">
+
+      <article class="stage" id="s0">
+        <div class="stage-top"><span class="stage-code">S0</span><h3>ตั้งระบบก่อนเริ่ม</h3><span class="stage-owner">เจ้าของกิจการ</span></div>
+        <p class="stage-lede">ทำครั้งเดียว 30 วัน ห้ามซื้อบ้านหลังแรกก่อนครบทั้ง 12 ข้อ</p>
+        <dl class="facts">
+          <div class="fact"><dt>เวลา</dt><dd class="num">30 วัน</dd></div>
+          <div class="fact"><dt>เพดานปีแรก</dt><dd class="num">ถือ 2–3 หลัง</dd></div>
+          <div class="fact"><dt>เงินสำรอง</dt><dd class="num">6 เดือน</dd></div>
+        </dl>
+        <ol class="steps">
+          <li>โครงสร้างนิติบุคคลและภาษี — ปรึกษานักบัญชีก่อนดีลแรก ไม่ใช่หลังปิดดีลแรก</li>
+          <li><b>แยกบัญชี 3 บัญชี</b> — ซื้อทรัพย์ / ดำเนินงาน / สำรอง ห้ามปนกับบัญชีส่วนตัว</li>
+          <li>กันเงินสำรอง 6 เดือนของค่าใช้จ่ายคงที่ แตะต้องไม่ได้ทุกกรณี</li>
+          <li>เขียน <b>Buy Box</b> เป็นเอกสาร แจกทีมและสายข่าวทุกคน</li>
+          <li>ทีมช่าง 2–3 ทีม ทดสอบด้วยงานเล็กก่อนให้งานใหญ่ ห้ามพึ่งทีมเดียว</li>
+          <li>ทนายประจำสำหรับร่างสัญญาและตรวจโฉนด</li>
+          <li><b>รู้จักเจ้าหน้าที่สินเชื่อ 3–5 คน ใน 3 ธนาคาร</b> — สินทรัพย์ที่มีค่าที่สุดของธุรกิจนี้</li>
+          <li>สร้าง Google Sheet 8 แท็บ + LINE OA + Rich Menu + ชุดเอกสารมาตรฐาน</li>
+        </ol>
+        <div class="gate"><strong>Gate</strong>ครบทั้ง 12 ข้อ จึงเริ่ม S1 ได้</div>
+      </article>
+
+      <article class="stage" id="s1">
+        <div class="stage-top"><span class="stage-code">S1</span><h3>หาของ</h3><span class="stage-owner">เจ้าของ + สายข่าว</span></div>
+        <p class="stage-lede">ป้อนทรัพย์เข้าท่ออย่างน้อย 20 รายการต่อเดือน จากช่องทางที่คู่แข่งเข้าไม่ถึง</p>
+        <dl class="facts">
+          <div class="fact"><dt>เป้าต่อเดือน</dt><dd class="num">≥ 20 รายการ</dd></div>
+          <div class="fact"><dt>นัดดูของภายใน</dt><dd class="num">48 ชม.</dd></div>
+          <div class="fact"><dt>ค่าสายข่าว</dt><dd class="num">5–20k / ดีล</dd></div>
+        </dl>
+        <ol class="steps">
+          <li><b>สายข่าวท้องถิ่น 40%</b> — ช่างแอร์ ช่างประปา ร้านวัสดุ ร้านชำหัวซอย วิน ผู้ใหญ่บ้าน นิติบุคคลหมู่บ้าน จ่ายค่าแนะนำเมื่อปิดได้ จ่ายตรงเวลาทุกครั้ง</li>
+          <li><b>ทรัพย์ร้อน 25%</b> — ย้ายงาน มรดกแบ่งไม่ลงตัว หย่าร้าง ผ่อนไม่ไหวใกล้ NPL บ้านหลังน้ำท่วมที่เจ้าของท้อ</li>
+          <li><b>เจ้าของขายเอง 20%</b> — ป้ายขายเองตามซอย กลุ่มซื้อขายบ้านหาดใหญ่ Marketplace</li>
+          <li>ทรัพย์ NPA ธนาคาร 10% · ขายทอดตลาด 5% — <b>ปีแรกอย่าแตะการขายทอดตลาด</b> เพราะดูของไม่ได้และอาจต้องฟ้องขับไล่ 6–18 เดือน</li>
+          <li>ลงพื้นที่ด้วย checklist โครงสร้าง / ระบบ / <b>น้ำท่วม</b> / กฎหมาย ถ่ายรูปทุกข้อ</li>
+          <li>ตรวจเกรดน้ำจาก <b>ร้านหัวซอย เพื่อนบ้าน 3 หลัง และคราบน้ำจริง</b> — ห้ามเชื่อเจ้าของบ้านฝ่ายเดียว</li>
+        </ol>
+        <div class="gate"><strong>Gate</strong>รูป 30+ ใบ · comps ปิดจริง 3 รายการ · เกรดน้ำ · ข้อสังเกตโครงสร้าง</div>
+      </article>
+
+      <article class="stage" id="s2">
+        <div class="stage-top"><span class="stage-code">S2</span><h3>คัดดีล + คำนวณ</h3><span class="stage-owner">เจ้าของ เท่านั้น</span></div>
+        <p class="stage-lede">สเตจที่ตัดสินว่าธุรกิจนี้กำไรหรือขาดทุน — กำไรเกิดตอนซื้อ ไม่ใช่ตอนขาย</p>
+        <dl class="facts">
+          <div class="fact"><dt>ตัดสินใจภายใน</dt><dd class="num">48 ชม.</dd></div>
+          <div class="fact"><dt>คะแนนผ่าน</dt><dd class="num">≥ 70 / 100</dd></div>
+          <div class="fact"><dt>กำไรเป้าหมาย</dt><dd class="num">18% ของ ARV</dd></div>
+        </dl>
+        <ol class="steps">
+          <li>หา <b>ARV จาก comps ที่ปิดขายจริง 3 รายการ</b> รัศมี 2 กม. ย้อนหลัง 6 เดือน ใช้ค่ากลาง ไม่ใช่ค่าสูงสุด</li>
+          <li><b>ห้ามใช้ราคาประกาศเป็น comp</b> — ตลาดไทยประกาศสูงกว่าราคาปิดจริง 8–15% ใช้แล้วจะซื้อแพงทุกหลังโดยไม่รู้ตัว</li>
+          <li>คำนวณ MAO แล้วให้คะแนนดีล 100 คะแนน (ส่วนต่างราคา 30 · เกรดน้ำ 20 · ทำเล 15 · งานรีโนเวท 10 · เอกสารสิทธิ์ 10 · <b>มีลูกค้าตรงสเปก 10</b> · ความเร็วผู้ขาย 5)</li>
+          <li>ต่อรองด้วย <b>เหตุผลเป็นข้อๆ ที่มีตัวเลขกำกับ</b> ไม่ใช่ขอลดลอยๆ และขายเงื่อนไข (ความเร็ว ความแน่นอน) ไม่ใช่แข่งที่ราคาอย่างเดียว</li>
+          <li>คนที่ต่อรองได้ดีที่สุดคือคนที่<b>เดินจากดีลนี้ได้จริง</b> — ห้ามผูกใจกับบ้านหลังใดหลังหนึ่ง</li>
+        </ol>
+        <div class="gate"><strong>Gate</strong>คะแนน ≥ 70 · ราคาตกลง ≤ MAO · เจ้าของอนุมัติเป็นลายลักษณ์อักษร</div>
+        <div class="kill"><strong>Kill switch — หยุดทันที</strong>โฉนดติดอายัด/มีคดี · เจ้าของไม่ครบ (มรดกยังไม่แบ่ง) · มีผู้อยู่อาศัยไม่ยอมออก · ทางเข้าออกเป็นทางผ่านที่ดินคนอื่นแบบปากเปล่า · เกรดน้ำ D–E · โครงสร้างทรุด · ผู้ขายไม่ยอมให้ตรวจโฉนดหรือขอเงินสดนอกสัญญา</div>
+      </article>
+
+      <article class="stage" id="s3">
+        <div class="stage-top"><span class="stage-code">S3</span><h3>ซื้อ + นิติกรรม</h3><span class="stage-owner">เจ้าของ + ทนาย</span></div>
+        <p class="stage-lede">ความเสี่ยงต่ำแต่ผลเสียหายรุนแรงที่สุด — ตรวจให้ครบก่อนวางมัดจำ</p>
+        <dl class="facts">
+          <div class="fact"><dt>ตกลง → โอน</dt><dd class="num">≤ 45 วัน</dd></div>
+          <div class="fact"><dt>ข้อพิพาทหลังโอน</dt><dd class="num">เป้า 0</dd></div>
+        </dl>
+        <ol class="steps">
+          <li>ตรวจ<b>สารบัญจดทะเบียนหลังโฉนด</b>ที่สำนักงานที่ดินอำเภอหาดใหญ่ — จำนอง อายัด ภาระจำยอม สิทธิเก็บกิน</li>
+          <li>ตรวจอำนาจผู้ขาย — <b>คู่สมรสต้องยินยอมเป็นหนังสือ</b> ถ้าเป็นมรดกต้องมีคำสั่งตั้งผู้จัดการมรดก</li>
+          <li>ตรวจแนวเขตจริง ผู้มีชื่อในทะเบียนบ้าน หนี้ค้างทุกประเภท และราคาประเมินราชการ</li>
+          <li>สัญญาต้องมี <b>ข้อรับรองระดับน้ำท่วมสูงสุด</b> · ส่งมอบบ้านว่าง · หนี้ค้างเป็นของผู้ขาย · วันโอนแน่นอนพร้อมค่าปรับสองฝ่าย</li>
+          <li>วันโอน: ตรวจโฉนดอีกครั้ง (อายัดเกิดระหว่างทางได้) · จ่ายด้วยแคชเชียร์เช็ค · จดเลขมิเตอร์ · ถ่ายวิดีโอสภาพบ้าน</li>
+        </ol>
+        <div class="gate"><strong>Gate</strong>โฉนดในชื่อเรา · บ้านว่าง · รูป Before ครบ</div>
+      </article>
+
+      <article class="stage" id="s4">
+        <div class="stage-top"><span class="stage-code">S4</span><h3>รีโนเวท</h3><span class="stage-owner">Reno PM</span></div>
+        <p class="stage-lede">ทำเฉพาะสิ่งที่ลูกค้าจ่ายเพิ่ม สิ่งที่ธนาคารประเมินให้ราคา และสิ่งที่เกี่ยวกับความปลอดภัย</p>
+        <dl class="facts">
+          <div class="fact"><dt>L1 แต่งหน้า</dt><dd class="num">3–6% · ≤30 วัน</dd></div>
+          <div class="fact"><dt>L2 มาตรฐาน</dt><dd class="num">8–12% · ≤60 วัน</dd></div>
+          <div class="fact"><dt>L3 ยกเครื่อง</dt><dd class="num">15–22% · ≤120 วัน</dd></div>
+          <div class="fact"><dt>ตรงงบ / ตรงเวลา</dt><dd class="num">≥85% / ≥80%</dd></div>
+        </dl>
+        <ol class="steps">
+          <li><b>ห้ามรีโนเวทตามรสนิยมตัวเอง</b> — ทุกบาทที่เกินสามข้อข้างบนคือกำไรที่หายไป ลำดับผลตอบแทน: สีทั้งหลัง › ครัว › ห้องน้ำ › พื้น › หน้าบ้าน</li>
+          <li><b>แพ็กสู้น้ำ ติดทุกหลัง</b> (40–90k) — ยกปลั๊กสูง 1.20 ม. · ตู้ไฟสูง 1.60 ม. แยกเบรกเกอร์ชั้นล่าง-บน · พื้นกระเบื้อง/SPC ห้ามลามิเนต · วงกบ UPVC · บิลท์อินยกลอย 20–30 ซม. · คอมแอร์ยกสูง · วาล์วกันน้ำย้อน · แผงกั้นน้ำแถมลูกค้า</li>
+          <li><b>แพ็กพร้อมอยู่ กระเป๋าใบเดียว</b> (80–150k) — แอร์ 2 ตัว เครื่องทำน้ำอุ่น ผ้าม่าน มุ้งลวด ครัวบิลท์อิน ตู้เสื้อผ้า ปั๊มน้ำ เพราะกลุ่มผู้เช่าหมดเงินไปกับดาวน์และค่าโอนแล้ว</li>
+          <li>คุมช่าง: <b>BOQ ก่อนเริ่ม</b> · งวดงาน 30/30/30/10 · ห้ามจ่ายล่วงหน้าเกิน 30% · ค่าปรับรายวันในสัญญาและบังคับใช้จริงครั้งแรกเลย</li>
+          <li><b>ตรวจงานซ่อนก่อนฉาบปิดผนัง</b> ถ่ายรูปเก็บทุกจุด และส่งรูปเข้ากลุ่มทีมทุกเย็น — ได้ทั้งการควบคุมงานและคอนเทนต์ฟรี</li>
+        </ol>
+        <div class="gate"><strong>Gate</strong>งานเสร็จ 100% · ชุดสื่อครบ (รูป 25–35 ใบ · วิดีโอพาชม 60–90 วิ แนวตั้ง · Before/After 30 วิ · ผังพื้น · ทัวร์ 360°) · ตั้งราคาขายและราคาต่ำสุดแล้ว</div>
+      </article>
+
+      <article class="stage" id="s5">
+        <div class="stage-top"><span class="stage-code">S5</span><h3>การตลาด + ประกาศขาย</h3><span class="stage-owner">Content + เจ้าของ</span></div>
+        <p class="stage-lede">ไม่ได้แข่งที่ “บ้านสวย ราคาถูก” แต่แข่งที่การทำให้ตัวเลขเข้าใจได้ในภาพเดียว</p>
+        <dl class="facts">
+          <div class="fact"><dt>ขึ้นครบทุกช่องใน</dt><dd class="num">3 วัน</dd></div>
+          <div class="fact"><dt>DOM เป้า</dt><dd class="num">≤ 90 วัน</dd></div>
+          <div class="fact"><dt>งบต่อหลัง</dt><dd class="num">1–2% ของราคาขาย</dd></div>
+        </dl>
+        <ol class="steps">
+          <li><b>การ์ดตัวเลข</b> คือชิ้นงานที่สำคัญที่สุด — ภาพเดียวบอก ราคา · ผ่อนเดือนละ · <b>เงินสดที่ต้องมีวันโอน</b> · เกรดน้ำ · ระยะทางเข้าเมือง เพราะกลุ่มเป้าหมายคำนวณไม่เป็นและไม่กล้าถาม</li>
+          <li>สัดส่วนคอนเทนต์ <b>4 ให้ความรู้ : 3 พาชมบ้าน : 2 ลูกค้าจริง : 1 ขายตรง</b> — เพจที่โพสต์แต่ขายบ้าน คนเลิกตาม และคนที่ทักมาจากคอนเทนต์ความรู้มีคุณภาพสูงกว่ามาก</li>
+          <li>เปิด <b>co-broke จ่าย 1.5–3%</b> ให้นายหน้าท้องถิ่น = เพิ่มกำลังขาย 20 คนโดยไม่เพิ่มต้นทุนคงที่ อย่าหวงคอม</li>
+          <li>ป้ายหน้าบ้าน + QR ไป LINE OA — ยังได้ผลสูงมากในต่างจังหวัด</li>
+          <li>กฎราคา: <b>14 วัน</b> สอบถาม &lt;10 ราย = ปัญหาที่ราคาหรือรูป · <b>45 วัน</b> ไม่มีข้อเสนอ = ลด 3% · <b>90 วัน</b> ทบทวนใหญ่ · <b>180 วัน ตัดขาย</b></li>
+        </ol>
+        <div class="gate"><strong>Gate</strong>ประกาศครบทุกช่องทาง + มีคนรับสายจริงในเวลาทำการ</div>
+      </article>
+
+      <article class="stage" id="s6">
+        <div class="stage-top"><span class="stage-code">S6</span><h3>รับลูกค้า + คัดเกรด</h3><span class="stage-owner">Admin/Chat + บอท</span></div>
+        <p class="stage-lede">ความเร็วในการตอบชนะทุกอย่าง — ชนะราคา ชนะบ้านสวยกว่า ชนะโฆษณาแพงกว่า</p>
+        <dl class="facts">
+          <div class="fact"><dt>ตอบครั้งแรก</dt><dd class="num">≤ 5 นาที</dd></div>
+          <div class="fact"><dt>คัดเกรดครบ</dt><dd class="num">≤ 24 ชม.</dd></div>
+          <div class="fact"><dt>Lead ต่อ 1 หลัง</dt><dd class="num">15–25 ราย</dd></div>
+        </dl>
+        <ol class="steps">
+          <li>บอทตอบทันทีใน 1 นาที คนจริงเข้ามาต่อใน 15 นาที — <b>Lead ที่ทิ้งไว้เกิน 1 ชั่วโมง โอกาสปิดลดลงอย่างมาก</b></li>
+          <li><b>ตอบราคาตรงๆ ทันที</b> ห้ามอมราคาแล้วขอเบอร์ก่อน คนจะเลิกคุยและไม่กลับมา</li>
+          <li>คัดกรอง <b>7 คำถาม</b> สอดแทรกอย่างเป็นธรรมชาติ: ค่าเช่าปัจจุบัน · อาชีพและเอกสารรายได้ · ภาระผ่อนที่มี · ประวัติค้างชำระ · เงินสดที่เตรียมไว้ · โซนที่ต้องการ · ความเร่งด่วน</li>
+          <li>ให้คะแนนความพร้อมกู้แล้วจัดเกรด A/B/C/D — <b>ห้ามบอกลูกค้าว่า “คะแนน 42 กู้ไม่ผ่าน”</b> ให้บอกว่ามีบางจุดที่ต้องจัดก่อน แล้วเราจะช่วยวางแผน</li>
+          <li>พาชมบ้าน: <b>พูดเรื่องน้ำท่วมก่อนที่ลูกค้าจะถาม</b> พร้อมรูปจากช่วงน้ำท่วมจริง — การพูดก่อนคือการควบคุมเรื่องเล่า</li>
+          <li>โชว์รูประหว่างรีโนเวทจากมือถือ — สร้างความน่าเชื่อถือมากกว่าคำพูดใดๆ</li>
+        </ol>
+        <div class="gate"><strong>Gate</strong>ข้อมูลการเงินครบ · เซ็นใบยินยอม PDPA · ตกลงเข้ากระบวนการยื่นกู้หรือปั้นเครดิต</div>
+        <div class="kill"><strong>ห้ามเด็ดขาด</strong>พาดูบ้านที่เกินกำลังผ่อน · บอกว่า “กู้ผ่านแน่นอน” ก่อนตรวจบูโรและคำนวณ DSR · ยัดลูกค้าให้กู้เกินกำลังเพื่อปิดดีล</div>
+      </article>
+
+      <article class="stage" id="s7">
+        <div class="stage-top"><span class="stage-code">S7</span><h3>ปั้นเครดิต + ยื่นกู้</h3><span class="stage-owner">Credit Officer</span></div>
+        <p class="stage-lede">คูเมืองของธุรกิจ — กลุ่ม B และ C รวมกันคือ 60–80% ของตลาด และเป็นกลุ่มที่นายหน้าทั่วไปทิ้ง</p>
+        <dl class="facts">
+          <div class="fact"><dt>อัตราอนุมัติ</dt><dd class="num">เป้า ≥ 70%</dd></div>
+          <div class="fact"><dt>โปรแกรม</dt><dd class="num">90 วัน</dd></div>
+          <div class="fact"><dt>ยื่นกี่ธนาคาร</dt><dd class="num">2 แห่ง</dd></div>
+        </dl>
+        <ol class="steps">
+          <li><b>วันที่ 0–7 วินิจฉัย</b> — ลูกค้าตรวจบูโรเอง ลงรายการหนี้ทุกก้อน คำนวณ DSR ปัจจุบันกับเป้าหมาย แล้วตกลงเป้าเป็นตัวเลขและวันที่ร่วมกัน</li>
+          <li><b>วันที่ 7–30 จัดบ้านการเงิน</b> — ปิดหนี้ที่ <b>ตัดภาระรายเดือนได้มากที่สุดต่อเงิน 1 บาทที่จ่าย</b> ไม่ใช่ปิดหนี้ที่ดอกแพงที่สุดก่อน เพราะเป้าเฉพาะหน้าคือลด DSR ไม่ใช่ประหยัดดอกเบี้ยระยะยาว</li>
+          <li>ห้ามเปิดหนี้ใหม่ทุกชนิด 6 เดือนก่อนยื่น <b>รวมถึงผ่อน 0% และการค้ำประกันให้คนอื่น</b> ซึ่งนับเป็นภาระในบูโร</li>
+          <li><b>วันที่ 30–90 สร้างหลักฐาน</b> — เดินบัญชีเดียวสม่ำเสมอจากรายได้จริง · อาชีพอิสระให้จดทะเบียนพาณิชย์และยื่นภาษีให้ถูกต้อง · <b>เก็บหลักฐานจ่ายค่าเช่าตรงเวลา 12 เดือน</b> ซึ่งเป็นของดีที่กลุ่มผู้เช่ามีอยู่แล้วแต่ไม่รู้ว่ามีค่า</li>
+          <li>ยื่น 2 ธนาคาร (หลัก + สำรอง) เมื่อเอกสารครบ 100% <b>ห้ามยื่นกราด 5 แห่ง</b> เพราะรอยตรวจถี่ๆ ทำให้ดูเหมือนร้อนเงิน</li>
+          <li>ไม่อนุมัติ: <b>ขอเหตุผลเป็นลายลักษณ์อักษร แล้วโทรหาลูกค้าด้วยตัวเอง ห้ามแจ้งทาง LINE</b> พร้อมแผนแก้ที่มีวันที่ชัดเจนในสายเดียวกัน</li>
+        </ol>
+        <div class="kill"><strong>เส้นที่ห้ามข้าม</strong>ห้ามทำเอกสารเท็จทุกชนิด · ห้ามอ้างว่าลบประวัติบูโรได้ (เป็นไปไม่ได้) · ห้ามใช้บริษัทรับปั้นเครดิตที่อ้างว่าเคลียร์บูโรได้ · ห้ามใช้นอมินี · ห้ามรับปากว่ากู้ผ่านแน่นอน — ดีลที่ได้จากเอกสารเท็จหนึ่งดีล แลกกับความสัมพันธ์กับเจ้าหน้าที่สินเชื่อทุกธนาคารในหาดใหญ่</div>
+      </article>
+
+      <article class="stage" id="s8">
+        <div class="stage-top"><span class="stage-code">S8</span><h3>ปิดการขาย + โอน</h3><span class="stage-owner">Sales + Credit Officer</span></div>
+        <p class="stage-lede">อนุมัติแล้วยังล่มได้ — จุดตายอยู่ที่ราคาประเมินและเงินสดวันโอน</p>
+        <dl class="facts">
+          <div class="fact"><dt>อนุมัติ → โอน</dt><dd class="num">≤ 30 วัน</dd></div>
+          <div class="fact"><dt>ดีลล่มหลังอนุมัติ</dt><dd class="num">≤ 5%</dd></div>
+          <div class="fact"><dt>แจ้งค่าใช้จ่ายก่อน</dt><dd class="num">≥ 7 วัน</dd></div>
+        </dl>
+        <ol class="steps">
+          <li><b>ราคาประเมินต่ำ = กู้ได้น้อย = ดีลพัง</b> ป้องกันโดยรู้ราคาประเมินราชการตั้งแต่ S2 · เตรียมแฟ้ม comps และใบเสร็จงานรีโนเวทให้ผู้ประเมิน · ทำบ้านให้พร้อมเหมือนวันพาลูกค้าชม · <b>อยู่ด้วยตอนประเมินและพาเดินอธิบาย</b></li>
+          <li><b>แจ้งค่าใช้จ่ายวันโอนเป็นตัวเลขจริงล่วงหน้า</b> — ค่าธรรมเนียมโอน ค่าจดจำนอง ภาษี ประกันอัคคีภัย ค่าประเมิน ค่าโอนมิเตอร์ เพราะการเซอร์ไพรส์วันโอนคือสาเหตุดีลล่มอันดับต้นๆ</li>
+          <li>ติดตามธนาคารทุก 3 วัน — เงียบหายไม่ตาม ดีลค้างในระบบเป็นเดือน</li>
+          <li>เคล็ดปิดการขาย: <b>เสนอช่วยค่าโอน แทนการลดราคา</b> — ต้นทุนเราเท่ากันหรือน้อยกว่า แต่แก้ปัญหาที่แท้จริงของลูกค้าและไม่ทำให้ราคาประเมินในตลาดตก</li>
+          <li>ส่งมอบ: เดินตรวจ <b>checklist 40 จุด</b> · คู่มือบ้าน (ผังไฟ ผังท่อ รายชื่อช่างแต่ละระบบ วิธีใช้แผงกั้นน้ำ) · <b>ใบรับประกันงานรีโนเวท 6–12 เดือน</b> · ถ่ายรูปวันรับกุญแจ</li>
+        </ol>
+        <div class="gate"><strong>Gate</strong>โอนสำเร็จ · ลูกค้าเซ็นรับมอบ · รายการงานเก็บตกมีกำหนดวันแก้</div>
+      </article>
+
+      <article class="stage" id="s9">
+        <div class="stage-top"><span class="stage-code">S9</span><h3>หลังการขาย + บอกต่อ</h3><span class="stage-owner">Admin + เจ้าของ</span></div>
+        <p class="stage-lede">สเตจที่ป้อนกลับเข้า S1 และทำให้ต้นทุนหาลูกค้าลดลงทุกปี</p>
+        <dl class="facts">
+          <div class="fact"><dt>ดีลจากบอกต่อ</dt><dd class="num">เป้า ≥30% ปีที่ 2</dd></div>
+          <div class="fact"><dt>ค่าแนะนำ</dt><dd class="num">5–15k / ดีล</dd></div>
+        </dl>
+        <ol class="steps">
+          <li><b>วันที่ 7</b> โทรถามหลังย้ายเข้า รับรายการงานเก็บตก · <b>วันที่ 30</b> เยี่ยมบ้านและถ่ายรีวิว · <b>วันที่ 90</b> ขอแนะนำเพื่อนอย่างเป็นทางการ ตอนที่ลูกค้าพอใจสูงสุด</li>
+          <li>ทุกปีทักวันครบรอบวันโอนและเตือนต่อประกันอัคคีภัย · <b>ปีที่ 3 เสนอรีไฟแนนซ์</b> ช่วยลูกค้าประหยัดดอกจริงและสร้างรายได้รอบสองให้เรา</li>
+          <li>ค่าแนะนำจ่ายทันทีและประกาศให้เห็น เพื่อให้คนอื่นรู้ว่าจ่ายจริง</li>
+          <li><b>ชุมชน “คนอยากมีบ้านหาดใหญ่”</b> — กลุ่มเปิดรับทุกคนโดยเฉพาะเกรด C/D ที่ยังกู้ไม่ผ่าน ให้ความรู้ฟรีทุกเดือน นายหน้าทั่วไปเสียลูกค้ากลุ่มนี้ 100% เพราะไม่มีที่ให้เขาอยู่ระหว่างรอ ในปีที่ 3 กลุ่มนี้จะเป็นแหล่งลูกค้าที่ต้นทุนต่ำที่สุดและปิดง่ายที่สุด</li>
+        </ol>
+        <div class="gate"><strong>ป้อนกลับเข้า S1</strong>เกรด B/C ที่ยังไม่พร้อม + โซนและงบที่ตลาดต้องการจริง → กำหนดว่ารอบหน้าจะซื้อบ้านแบบไหน</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOOD ============ -->
+<section id="flood">
+  <div class="sec-head"><span class="sec-num">03</span><h2>เกรดน้ำท่วม</h2></div>
+  <p class="sec-sub">
+    บ้านสองหลังหน้าตาเหมือนกัน อยู่ห่างกัน 400 เมตร ราคาต่างกันได้ 15–30% เพราะเรื่องนี้เรื่องเดียว
+    คนนอกพื้นที่ประเมินเรื่องนี้ไม่เป็น คนในพื้นที่รู้แต่ไม่มีใครทำเป็นระบบ — นั่นคือช่องว่างที่เราเข้าไปยึด
+  </p>
+
+  <div class="ramp">
+    <div class="grade">
+      <div class="grade-bar" style="background:var(--g-a)"></div>
+      <div class="grade-body">
+        <div class="grade-letter" style="color:var(--g-a)">A</div>
+        <div class="grade-depth">น้ำไม่เข้าตัวบ้าน</div>
+        <p class="grade-rule">ไม่เคยมีน้ำเข้าบ้าน รวมปี 2553 และ 2568</p>
+        <div class="grade-act" style="color:var(--g-a)">ซื้อราคาเต็ม · ใช้เป็นพาดหัวโฆษณา</div>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="grade-bar" style="background:var(--g-b)"></div>
+      <div class="grade-body">
+        <div class="grade-letter" style="color:var(--g-b)">B</div>
+        <div class="grade-depth">ถนน ≤ 30 ซม.</div>
+        <p class="grade-rule">น้ำขังถนนหน้าบ้าน ไม่เข้าตัวบ้าน</p>
+        <div class="grade-act" style="color:var(--g-b)">ต่อรองลง 3–5%</div>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="grade-bar" style="background:var(--g-c)"></div>
+      <div class="grade-body">
+        <div class="grade-letter" style="color:var(--g-c)">C</div>
+        <div class="grade-depth">ในบ้าน &lt; 50 ซม.</div>
+        <p class="grade-rule">น้ำเข้าตัวบ้าน ต้องรีโนเวทแบบกันน้ำเต็มรูปแบบ</p>
+        <div class="grade-act" style="color:var(--g-c)">ต่อรองลง 10–15%</div>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="grade-bar" style="background:var(--g-d)"></div>
+      <div class="grade-body">
+        <div class="grade-letter" style="color:var(--g-d)">D</div>
+        <div class="grade-depth">ในบ้าน 50–150 ซม.</div>
+        <p class="grade-rule">ต้องเดินระบบไฟใหม่ทั้งหลัง ธนาคารอาจประเมินต่ำ</p>
+        <div class="grade-act" style="color:var(--g-d)">ต่อรองลง 20–30% · เลี่ยงในปีแรก</div>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="grade-bar" style="background:var(--g-e)"></div>
+      <div class="grade-body">
+        <div class="grade-letter" style="color:var(--g-e)">E</div>
+        <div class="grade-depth">&gt; 150 ซม. หรือซ้ำทุก 2–3 ปี</div>
+        <p class="grade-rule">ความเสี่ยงเกินกว่าที่ส่วนลดใดจะชดเชยได้</p>
+        <div class="grade-act" style="color:var(--g-e)">ไม่ซื้อ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caveat">
+    <b>วิธีตรวจ — ห้ามข้ามขั้นตอน และห้ามเชื่อเจ้าของบ้านฝ่ายเดียว</b>
+    <ul>
+      <li>ถาม<b>ร้านค้าหัวมุมซอย ร้านชำ วินมอเตอร์ไซค์</b> — อยู่ที่เดิม 10–20 ปี พูดความจริง และไม่มีส่วนได้เสียกับการขาย</li>
+      <li>ถาม<b>เพื่อนบ้าน 3 หลังคนละทิศ</b> ด้วยคำถามเดียวกัน ให้เขาชี้ระดับด้วยมือแล้วถ่ายรูปไว้</li>
+      <li>ดู<b>คราบน้ำจริง</b>บนเสารั้ว ผนังนอก ประตูเหล็กม้วน ตู้ไฟ — คราบน้ำไม่โกหก และผนังนอกที่เพิ่งทาสีใหม่ทั้งที่บ้านเก่าคือสัญญาณเตือน</li>
+      <li>ค้นกลุ่ม Facebook ชุมชนย้อนช่วงน้ำท่วม แล้วประกอบกับแผนที่เสี่ยงภัยของหน่วยงานรัฐ</li>
+      <li><b>เขียนข้อรับรองระดับน้ำท่วมสูงสุดลงในสัญญาจะซื้อจะขายทุกครั้ง</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ BUYERS ============ -->
+<section id="buyers">
+  <div class="sec-head"><span class="sec-num">04</span><h2>ลูกค้า 4 เกรด</h2></div>
+  <p class="sec-sub">
+    นายหน้าทั่วไปแบ่งลูกค้าเป็น “สนใจ / ไม่สนใจ” เราแบ่งตาม<b>ความพร้อมกู้</b> เพราะเวลาของเซลส์คือทรัพยากรที่แพงที่สุด
+    และเพราะกลุ่ม B กับ C คือตลาดใหญ่ที่แทบไม่มีคู่แข่ง
+  </p>
+
+  <div class="buyers">
+    <div class="buyer">
+      <div class="buyer-head"><span class="buyer-letter">A</span><span class="buyer-name">พร้อมกู้ทันที</span></div>
+      <p>DSR เหลือพอ บูโรสะอาด มีเอกสารรายได้ และมีเงินก้อนวันโอน</p>
+      <dl>
+        <dt>สัดส่วน</dt><dd>10–15%</dd>
+        <dt>ปิดใน</dt><dd>30–60 วัน</dd>
+        <dt>ทำอะไร</dt><dd>นัดดูบ้านใน 72 ชม.</dd>
+      </dl>
+    </div>
+    <div class="buyer">
+      <div class="buyer-head"><span class="buyer-letter">B</span><span class="buyer-name">แก้ได้ 1–6 เดือน</span></div>
+      <p>DSR สูงเกินนิดหน่อย มีหนี้บัตร เอกสารรายได้ไม่ครบ หรือเงินก้อนยังไม่พอ</p>
+      <dl>
+        <dt>สัดส่วน</dt><dd>30–40%</dd>
+        <dt>ปิดใน</dt><dd>3–8 เดือน</dd>
+        <dt>ทำอะไร</dt><dd>ปั้นเครดิต 90 วัน + พาดูบ้าน</dd>
+      </dl>
+    </div>
+    <div class="buyer">
+      <div class="buyer-head"><span class="buyer-letter">C</span><span class="buyer-name">ต้องใช้เวลา</span></div>
+      <p>เคยค้างเกิน 90 วัน อยู่ระหว่างปิดหนี้ อาชีพอิสระที่ยังไม่เดินบัญชี หรือมีหนี้นอกระบบ</p>
+      <dl>
+        <dt>สัดส่วน</dt><dd>30–40%</dd>
+        <dt>ปิดใน</dt><dd>9–24 เดือน</dd>
+        <dt>ทำอะไร</dt><dd>ดูแลระยะยาว + เช่าออม</dd>
+      </dl>
+    </div>
+    <div class="buyer">
+      <div class="buyer-head"><span class="buyer-letter">D</span><span class="buyer-name">ยังไม่ใช่ลูกค้า</span></div>
+      <p>ยังไม่มีรายได้ที่พิสูจน์ได้ หรือยังไม่ต้องการซื้อจริง</p>
+      <dl>
+        <dt>สัดส่วน</dt><dd>15–25%</dd>
+        <dt>ปิดใน</dt><dd>—</dd>
+        <dt>ทำอะไร</dt><dd>ให้ความรู้ฟรี · <b>ห้ามไล่</b></dd>
+      </dl>
+    </div>
+  </div>
+  <div class="caveat">
+    <b>การบอกลูกค้าตรงๆ ว่าเขายังกู้ไม่ผ่าน คือการสร้างความไว้ใจ ไม่ใช่การเสียลูกค้า</b>
+    เขาจะจำเราในฐานะคนที่ไม่หลอกให้เสียเวลา และจะกลับมาเมื่อพร้อม ส่วนเกรด D วันหนึ่งอาจแนะนำเพื่อนให้เรา
+  </div>
+</section>
+
+<!-- ============ MAO ============ -->
+<section id="mao">
+  <div class="sec-head"><span class="sec-num">05</span><h2>สมการเดียวที่ตัดสินกำไร</h2></div>
+  <p class="sec-sub">
+    ราคาซื้อสูงสุดที่ยอมจ่าย (MAO) — ต้องคำนวณให้เสร็จ<b>ก่อน</b>เจอเจ้าของ ไม่ใช่หลังจากที่คุณตกหลุมรักบ้านหลังนั้นแล้ว
+  </p>
+
+  <div class="calc">
+    <table>
+      <tbody>
+        <tr><td class="lbl"><b>ARV</b> — ราคาขายจริงที่คาดได้ จาก comps ปิดจริง 3 หลัง</td><td><b>1,590,000</b></td></tr>
+        <tr class="div"><td colspan="2"></td></tr>
+        <tr><td class="lbl">หัก งานรีโนเวททั้งหมด</td><td>−368,000</td></tr>
+        <tr class="sub"><td class="lbl">รีโนเวท Level 2</td><td>145,000</td></tr>
+        <tr class="sub"><td class="lbl">แพ็กสู้น้ำ</td><td>65,000</td></tr>
+        <tr class="sub"><td class="lbl">แพ็กพร้อมอยู่</td><td>110,000</td></tr>
+        <tr class="sub"><td class="lbl">บวกกันพลาด 15%</td><td>48,000</td></tr>
+        <tr class="div"><td colspan="2"></td></tr>
+        <tr><td class="lbl">หัก ต้นทุนถือครอง 5 เดือน × 9,000</td><td>−45,000</td></tr>
+        <tr class="div"><td colspan="2"></td></tr>
+        <tr><td class="lbl">หัก ต้นทุนขาย</td><td>−120,650</td></tr>
+        <tr class="sub"><td class="lbl">ค่าคอม co-broke 2%</td><td>31,800</td></tr>
+        <tr class="sub"><td class="lbl">ค่าโอน + ภาษีตอนขาย</td><td>65,000</td></tr>
+        <tr class="sub"><td class="lbl">งบการตลาด 1.5%</td><td>23,850</td></tr>
+        <tr class="div"><td colspan="2"></td></tr>
+        <tr><td class="lbl">หัก กำไรเป้าหมาย 18% ของ ARV</td><td>−286,200</td></tr>
+        <tr class="div"><td colspan="2"></td></tr>
+        <tr class="tot"><td class="lbl">MAO — ราคาซื้อสูงสุดที่ยอมจ่าย</td><td>770,150</td></tr>
+      </tbody>
+    </table>
+
+    <div class="verdicts">
+      <div class="verdict v-ok"><span class="mark">ซื้อ</span><code>750,000</code><span>ต่ำกว่า MAO 20,150 — เคาะได้</span></div>
+      <div class="verdict v-warn"><span class="mark">ต่อรอง</span><code>850,000</code><span>เกิน MAO 79,850 — กลับไปต่อรองหรือทิ้ง</span></div>
+      <div class="verdict v-no"><span class="mark">ทิ้ง</span><code>950,000</code><span>ห่างเกินไป ไม่ต้องเสียเวลาไปดู</span></div>
+    </div>
+  </div>
+
+  <div class="caveat">
+    <b>บทเรียนสำคัญที่สุดของทั้งคู่มือ</b> — คนทำธุรกิจนี้ที่เจ๊ง ไม่ได้เจ๊งเพราะขายไม่ได้
+    แต่เจ๊งเพราะ “รู้สึกว่ามันน่าจะได้” แล้วซื้อเกิน MAO
+    ทุกครั้งที่คุณคิดว่า <i>เกินไปนิดเดียว น่าจะยังพอมีกำไร</i> — นั่นคือกำไรทั้งดีลที่กำลังจะหายไป
+    <br><br>
+    ตัวเลขในตารางนี้เป็น<b>ตัวอย่างสมมติเพื่อให้เห็นวิธีคำนวณ</b> ไม่ใช่ราคาตลาดจริงของหาดใหญ่
+  </div>
+</section>
+
+<!-- ============ FUNNEL ============ -->
+<section id="funnel">
+  <div class="sec-head"><span class="sec-num">06</span><h2>ท่อและตัวชี้วัด</h2></div>
+  <p class="sec-sub">
+    ตัวชี้วัดดาวเหนือคือ <b>จำนวนผู้เช่าที่กลายเป็นเจ้าของบ้านต่อเดือน</b> ตัวเดียว
+    เพราะเป็นตัวเดียวที่ต้องผ่านทุกด่านของธุรกิจพร้อมกัน ถ้าไม่เพิ่ม แปลว่ามีด่านใดด่านหนึ่งพัง แล้วค่อยไล่หาว่าด่านไหน
+  </p>
+
+  <div class="tbl-scroll">
+    <table class="data">
+      <thead>
+        <tr><th>ขั้นในท่อ</th><th>เป้า</th><th>ถ้าต่ำกว่าเกณฑ์ แปลว่า</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="key">คนเห็นโฆษณา → ทักเข้ามา</td><td class="n">1–3%</td><td>คอนเทนต์หรือการ์ดตัวเลขมีปัญหา</td></tr>
+        <tr><td class="key">Lead → คัดกรองได้ครบ</td><td class="n">60%</td><td>ถามเร็วเกินไป หรือถามเหมือนแบบฟอร์มราชการ</td></tr>
+        <tr><td class="key">คัดกรองครบ → เกรด A หรือ B</td><td class="n">40–55%</td><td>ยิงโฆษณาผิดกลุ่ม</td></tr>
+        <tr><td class="key">เกรด A/B → นัดดูบ้าน</td><td class="n">50–65%</td><td>ทรัพย์ไม่ตรงกับที่ลูกค้าต้องการ</td></tr>
+        <tr><td class="key">ดูบ้าน → ยื่นกู้</td><td class="n">40–50%</td><td>ราคาหรือสเปกบ้านไม่ตรงกลุ่ม</td></tr>
+        <tr><td class="key"><span class="pill">ตัวชี้วัดหลัก</span> ยื่นกู้ → อนุมัติ</td><td class="n">≥ 70%</td><td>คัดกรองต้นทางหลวมเกินไป (ต่ำกว่า 55% = ปัญหาที่เรา ไม่ใช่ที่ธนาคาร)</td></tr>
+        <tr><td class="key">อนุมัติ → โอนสำเร็จ</td><td class="n">≥ 90%</td><td>ไม่ได้แจ้งค่าใช้จ่ายวันโอนล่วงหน้า หรือธนาคารประเมินต่ำ</td></tr>
+        <tr><td class="key">เวลาตอบ Lead ครั้งแรก</td><td class="n">≤ 5 นาที</td><td>แก้ง่ายที่สุด แต่เสียโอกาสมากที่สุด</td></tr>
+        <tr><td class="key">DOM — วันขายนับจากพร้อมขาย</td><td class="n">≤ 90 วัน</td><td>ต้นทุนถือครองกำลังกินกำไรอยู่เงียบๆ</td></tr>
+        <tr><td class="key">กำไรขั้นต้นต่อหลัง</td><td class="n">18–25%</td><td>ซื้อแพงไป หรือรีโนเวทเกินสิ่งที่ตลาดจ่าย</td></tr>
+        <tr><td class="key"><b>Lead ที่ไม่มีนัดถัดไป</b></td><td class="n">0 ราย</td><td>ลูกค้าที่ไม่มีนัดถัดไป คือลูกค้าที่หายไปแล้วโดยที่เรายังไม่รู้ตัว</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="caveat">
+    ผลรวมของท่อ: <b>Lead ประมาณ 15–25 ราย ต่อการปิดการขาย 1 หลัง</b> — ถ้าตั้งเป้าปิด 2 หลังต่อเดือน ต้องมี Lead ที่คัดกรองแล้ว 30–50 รายต่อเดือน
+    <br><br>
+    วัดต้นทุนที่ปลายทางเสมอ: <b>ต้นทุนต่อผู้กู้ผ่าน 1 คน</b> ไม่ใช่ต้นทุนต่อ Lead
+    เพจที่มี Lead 500 คนแต่กู้ผ่าน 2 คน แพ้เพจที่มี Lead 60 คนแต่กู้ผ่าน 12 คน
+  </div>
+</section>
+
+<!-- ============ 90 DAYS ============ -->
+<section id="launch">
+  <div class="sec-head"><span class="sec-num">07</span><h2>90 วันแรก</h2></div>
+  <p class="sec-sub">เดือนแรกไม่ซื้อบ้านเลย — เอาเวลาไปสร้างสิ่งที่ทำให้การซื้อหลังแรกไม่ผิดพลาด</p>
+
+  <div class="timeline">
+    <div class="month">
+      <div class="month-head"><span class="month-num">เดือน 1</span><h3>วางระบบและสำรวจ</h3></div>
+      <ul>
+        <li>แยกบัญชี 3 บัญชี กันเงินสำรอง 6 เดือน ปรึกษานักบัญชีและหาทนายประจำ</li>
+        <li>ทำตาราง 13 ตำบล แล้ว<b>เลือก 3 โซนเป้าหมาย ห้ามซื้อนอกโซนใน 12 เดือน</b></li>
+        <li>เก็บ comps 20 รายการแรก + ทำแผนที่เกรดน้ำของ 3 โซนจากการเดินสำรวจจริง</li>
+        <li>แจกการ์ด Buy Box <b>100 ใบแรก</b> ให้ร้านวัสดุ ร้านชำ วิน ช่าง นิติบุคคล</li>
+        <li>เข้าพบเจ้าหน้าที่สินเชื่อ <b>3 ธนาคาร</b> ขอเงื่อนไขล่าสุดและตารางค่าผ่อนต่อล้าน</li>
+        <li>เปิด LINE OA + Rich Menu + เพจ + เผยแพร่คอนเทนต์ 10 ชิ้นแรก</li>
+      </ul>
+      <div class="month-goal"><strong>เป้าสิ้นเดือน</strong>ทรัพย์ในท่อ 20 รายการ · Lead 30 คน · <b>ยังไม่ซื้อบ้านเลย</b></div>
+    </div>
+
+    <div class="month">
+      <div class="month-head"><span class="month-num">เดือน 2</span><h3>ซื้อหลังแรกและสร้างฐานลูกค้า</h3></div>
+      <ul>
+        <li>คัดเกรด Lead 30 คนแรกเป็น A/B/C/D</li>
+        <li>เปิดโปรแกรมปั้นเครดิตกับ<b>เกรด B 20 คนแรก</b> — นี่คือท่อสำหรับเดือนที่ 4–6</li>
+        <li>คำนวณ MAO อย่างน้อย 10 รายการ ยื่นข้อเสนอ 5 รายการ</li>
+        <li><b>ซื้อบ้านหลังแรก 1 หลัง — Level 1 หรือ 2 เท่านั้น อย่าเริ่มด้วย L3</b></li>
+        <li>เริ่มรีโนเวทและถ่ายคอนเทนต์ระหว่างทำทุกวัน</li>
+        <li>รับงานฝากขายควบคู่ เพื่อให้มีรายได้ระหว่างรอหลังแรกเสร็จ</li>
+      </ul>
+      <div class="month-goal"><strong>เป้าสิ้นเดือน</strong>บ้าน 1 หลังกำลังรีโนเวท · Lead สะสม 80 คน · เกรด A/B 30 คน · เคสปั้นเครดิต 20 เคส</div>
+    </div>
+
+    <div class="month">
+      <div class="month-head"><span class="month-num">เดือน 3</span><h3>เปิดตัวขายและปิดดีลแรก</h3></div>
+      <ul>
+        <li>รีโนเวทเสร็จ ถ่ายชุดสื่อครบ ทำการ์ดตัวเลข</li>
+        <li>เปิดตัวขายครบทุกช่องทางพร้อมกัน + เปิด co-broke ให้นายหน้าท้องถิ่น</li>
+        <li>พาชมบ้าน ≥ 10 ราย · ยื่นกู้ 5–8 ราย · <b>ปิดการขายหลังแรก</b></li>
+        <li>ทำ <b>P&amp;L รายหลังให้ครบทุกช่อง รวมช่องบทเรียน 3 ข้อ</b></li>
+        <li><b>เขียนทับสมมติฐานตั้งต้นทั้งหมดด้วยตัวเลขจริงของตัวเอง</b> แล้วปรับ Buy Box</li>
+      </ul>
+      <div class="month-goal"><strong>เป้าสิ้นเดือน</strong>ปิดได้ 1 หลัง · รู้ตัวเลขจริงของตลาดตัวเอง · มีท่อลูกค้าสำหรับ 3 เดือนถัดไป</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KILLERS ============ -->
+<section id="killers">
+  <div class="sec-head"><span class="sec-num">08</span><h2>สิ่งที่ทำให้ธุรกิจนี้ตาย</h2></div>
+  <p class="sec-sub">เรียงตามความถี่ที่เกิดจริง ไม่ใช่ตามความน่ากลัว — ห้าข้อแรกเป็นเรื่องวินัย ไม่ใช่เรื่องความรู้</p>
+
+  <ol class="killers">
+    <li><b>ซื้อแพงเกิน MAO เพราะ “รู้สึกว่าน่าจะได้”</b><small>สาเหตุอันดับหนึ่ง ไม่มีข้อยกเว้น ไม่มีการตลาดใดกู้ดีลที่ซื้อแพงคืนมาได้</small></li>
+    <li><b>ถือบ้านหลายหลังพร้อมกันเกินกำลังเงินสด</b><small>ธุรกิจนี้ตายเพราะเงินจม ไม่ใช่เพราะขายไม่ออก ปีแรกถือไม่เกิน 2–3 หลัง และตั้งเพดานเวลาถือครอง 180 วัน</small></li>
+    <li><b>ไม่คัดกรองลูกค้าตั้งแต่ต้นทาง</b><small>เซลส์ 1 คนพาดูบ้านได้วันละ 2–3 ราย ถ้าครึ่งหนึ่งเป็นเกรด D ก็เท่ากับเผาเงินทิ้งครึ่งหนึ่ง</small></li>
+    <li><b>รีโนเวทตามรสนิยมตัวเอง ไม่ใช่ตามที่ตลาดจ่าย</b><small>ทุกบาทที่เกินจากสิ่งที่ลูกค้าจ่ายเพิ่ม ธนาคารประเมินให้ และความปลอดภัย คือกำไรที่หายไป</small></li>
+    <li><b>ปิดข้อมูลน้ำท่วม แล้วลูกค้ารู้ทีหลัง</b><small>ในเมืองที่ทุกคนรู้จักกัน ข่าวแบบนี้เดินทางเร็วมาก และการปกปิดสภาพทรัพย์ที่เป็นสาระสำคัญเปิดช่องให้ผู้ซื้อฟ้องเพิกถอนสัญญา</small></li>
+    <li><b>ไม่แจ้งค่าใช้จ่ายวันโอนล่วงหน้า</b><small>ดีลที่ผ่านทุกด่านมาแล้วมาล่มตอนใกล้จบ เพราะลูกค้าไม่รู้ว่าต้องมีเงินสดอีกก้อน</small></li>
+    <li><b>ตอบแชทช้า</b><small>แก้ง่ายที่สุดในรายการนี้ แต่เสียโอกาสมากที่สุด</small></li>
+  </ol>
+
+  <div class="caveat">
+    <b>คนที่อยู่รอดในธุรกิจนี้ยี่สิบปี ไม่ใช่คนที่ฉลาดที่สุด แต่คือคนที่ทำตามตัวเลขที่ตัวเองเขียนไว้ตอนหัวเย็น</b>
+  </div>
+</section>
+
+<footer>
+  <p>
+    <b>ข้อจำกัดของเอกสารนี้</b> — ตัวเลขทุกตัวเป็นสมมติฐานตั้งต้นเพื่อให้เริ่มคำนวณได้ ต้องแทนที่ด้วยตัวเลขจริงจากการสำรวจของคุณเองภายใน 60 วันแรก
+    ส่วนอัตราภาษี ค่าธรรมเนียมโอน มาตรการรัฐ และเงื่อนไขสินเชื่อ เปลี่ยนทุกปี — เอกสารนี้บอกโครงสร้างให้ ไม่ใช่อัตราปัจจุบัน
+    ต้องยืนยันกับสำนักงานที่ดินอำเภอหาดใหญ่ สรรพากรพื้นที่ เจ้าหน้าที่สินเชื่อสาขา ทนาย และนักบัญชี ก่อนใช้ตัดสินใจจริงเสมอ
+    ไม่ใช่คำแนะนำทางกฎหมาย ภาษี หรือการลงทุน
+  </p>
+  <p>
+    คู่มือฉบับเต็ม 7 เล่มพร้อมสคริปต์แชท ตารางจับคู่ธนาคาร โครงสร้าง Google Sheet 8 แท็บ
+    และแผนอัปเกรด LINE bot อยู่ที่ <code>docs/playbook/</code> ในโปรเจกต์ <code>home2hatyai</code>
+  </p>
+</footer>
+
+</div>
