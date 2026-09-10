@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import type { SearchListingRow } from "@/lib/types/database";
+import { isSupabaseConfigured } from "@/lib/env";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -21,6 +22,13 @@ function num(value: string | null): number | null {
  * เรียกผ่าน RPC search_listings ที่ยังอยู่ภายใต้ RLS (ผู้ไม่ล็อกอินเห็นเฉพาะที่เผยแพร่แล้ว)
  */
 export async function GET(request: NextRequest) {
+  if (!isSupabaseConfigured) {
+    return NextResponse.json(
+      { error: "ยังไม่ได้ตั้งค่า Supabase — ดูขั้นตอนใน docs/SETUP.md", items: [], total: 0 },
+      { status: 503 }
+    );
+  }
+
   const params = request.nextUrl.searchParams;
   const supabase = createClient();
 

@@ -4,12 +4,18 @@ import TopBar from "@/components/nav/TopBar";
 import ListingCard from "@/components/listing/ListingCard";
 import { createClient } from "@/lib/supabase/server";
 import { getSession } from "@/lib/auth";
+import SetupNotice from "@/components/ui/SetupNotice";
+import { isSupabaseConfigured } from "@/lib/env";
 import type { Listing, SearchListingRow } from "@/lib/types/database";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "รายการโปรด" };
 
 export default async function FavoritesPage() {
+  if (!isSupabaseConfigured) {
+    return (<><TopBar role={null} title="รายการโปรด" /><SetupNotice /></>);
+  }
+
   const session = await getSession();
   const supabase = createClient();
 

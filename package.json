@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:parser": "tsx scripts/test-parser.mjs",
+    "collect:facebook": "tsx scripts/collect-facebook.mjs",
+    "import:posts": "tsx scripts/import-posts.mjs",
+    "import:samples": "tsx scripts/import-posts.mjs scripts/sample-posts.json --source-name \"ข้อมูลตัวอย่าง\" --kind manual"
   },
   "dependencies": {
     "@google/genai": "^2.18.0",
@@ -26,6 +30,7 @@
     "@types/node": "^20.14.9",
     "@types/papaparse": "^5.5.2",
     "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.7",
     "tsx": "^4.23.13",
     "typescript": "^5.5.3"
   }

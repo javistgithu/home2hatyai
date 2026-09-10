@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { parsePost } from "@/lib/parser";
+import { isSupabaseConfigured } from "@/lib/env";
 
 export const runtime = "nodejs";
 
@@ -9,6 +10,10 @@ export const runtime = "nodejs";
  * ใช้ในหน้าแอดมิน "วางข้อความโพสต์" เพื่อตรวจก่อนนำเข้า
  */
 export async function POST(request: NextRequest) {
+  if (!isSupabaseConfigured) {
+    return NextResponse.json({ error: "ยังไม่ได้ตั้งค่า Supabase" }, { status: 503 });
+  }
+
   const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: "ต้องเข้าสู่ระบบก่อน" }, { status: 401 });

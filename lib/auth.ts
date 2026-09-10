@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/env";
 import type { Profile, UserRole } from "@/lib/types/database";
 
 export interface SessionContext {
@@ -11,6 +12,9 @@ export interface SessionContext {
 
 /** อ่านผู้ใช้ปัจจุบันพร้อมโปรไฟล์ คืน null เมื่อยังไม่ล็อกอิน */
 export async function getSession(): Promise<SessionContext | null> {
+  // ยังไม่ได้ตั้งค่า Supabase = ถือว่ายังไม่ล็อกอิน (หน้าเว็บจะแสดงวิธีตั้งค่าแทนการพัง)
+  if (!isSupabaseConfigured) return null;
+
   const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return null;
@@ -31,6 +35,8 @@ export async function getSession(): Promise<SessionContext | null> {
 
 /** บังคับให้ต้องล็อกอินและมีบทบาทตามที่กำหนด ไม่ผ่านจะพาไปหน้าอื่น */
 export async function requireRole(allowed: UserRole[], nextPath: string): Promise<SessionContext> {
+  if (!isSupabaseConfigured) redirect("/?error=setup_required");
+
   const session = await getSession();
   if (!session) redirect(`/login?next=${encodeURIComponent(nextPath)}`);
   if (!allowed.includes(session.role)) redirect("/?error=forbidden");

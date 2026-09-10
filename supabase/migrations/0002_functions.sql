@@ -210,6 +210,7 @@ create trigger listings_20_compute before insert or update on public.listings
 --   ราคาต่างกันไม่เกิน 2%     +18
 --   พื้นที่ต่างกันไม่เกิน 3%   +14
 --   พิกัดห่างกันน้อยกว่า 300 ม. +16  (500 ม. +8)
+--   พิกัดห่างกันเกิน 1 กม. ทั้งที่แม่นทั้งคู่ -30  (กันการรวมคนละหลังของนายหน้าคนเดียวกัน)
 --   ข้อความคล้ายกัน            + similarity * 32
 --   คนละประเภททรัพย์          -25
 -- ---------------------------------------------------------------------------
@@ -263,11 +264,14 @@ begin
              and base.land_area_sqwa > 0
              and abs(c.land_area_sqwa - base.land_area_sqwa) / base.land_area_sqwa <= 0.03
             then 14 else 0 end)::numeric as s_area,
-      -- ระยะห่างพิกัด
+      -- ระยะห่างพิกัด : ใกล้กัน = หลักฐานว่าซ้ำ, ไกลกันทั้งที่พิกัดแม่นทั้งคู่ = หลักฐานว่าคนละหลัง
       (case
         when base.lat is null or c.lat is null then 0
         when public.haversine_km(base.lat, base.lng, c.lat, c.lng) <= 0.3 then 16
         when public.haversine_km(base.lat, base.lng, c.lat, c.lng) <= 0.5 then 8
+        when public.haversine_km(base.lat, base.lng, c.lat, c.lng) > 1.0
+             and base.geo_precision in ('exact', 'rooftop', 'geocoded')
+             and c.geo_precision in ('exact', 'rooftop', 'geocoded') then -30
         else 0 end)::numeric as s_geo,
       -- ความคล้ายข้อความ
       (coalesce(similarity(left(coalesce(base.search_blob, ''), 500),
@@ -299,7 +303,8 @@ begin
       'area_match',     case when s.s_area > 0 then true else null end,
       'distance_km',    case when s.dist_km is not null then round(s.dist_km::numeric, 3) else null end,
       'text_similarity', round(coalesce(s.text_sim, 0)::numeric, 3),
-      'same_type',      case when s.s_type > 0 then true else false end
+      'same_type',      case when s.s_type > 0 then true else false end,
+      'far_apart',      case when s.s_geo < 0 then true else null end
     )),
     s.title,
     s.source_id,
