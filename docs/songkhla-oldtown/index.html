@@ -4,23 +4,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Trirong:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
 :root{
-  --ground:#EDF0F3;
-  --surface:#FBFCFD;
-  --surface-2:#E3E9EE;
-  --ink:#16243A;
-  --ink-2:#48596E;
-  --ink-3:#7C8B9C;
-  --glaze:#2E5C8A;
-  --glaze-soft:#DCE6F0;
-  --lake:#A8C3CE;
-  --lake-deep:#6E93A2;
-  --cinnabar:#C0402B;
-  --cinnabar-soft:#F4DED9;
+  --ground:#EDF0F3; --surface:#FBFCFD; --surface-2:#E3E9EE;
+  --ink:#16243A; --ink-2:#48596E; --ink-3:#7C8B9C;
+  --glaze:#2E5C8A; --glaze-soft:#DCE6F0;
+  --lake:#A8C3CE; --lake-deep:#6E93A2;
+  --cinnabar:#C0402B; --cinnabar-soft:#F4DED9;
   --line:#CBD5DE;
-  --ok:#2F6B4F;
-  --ok-soft:#DCEBE2;
-  --warn:#8A5A16;
-  --warn-soft:#F3E7D2;
+  --ok:#2F6B4F; --ok-soft:#DCEBE2;
+  --warn:#8A5A16; --warn-soft:#F3E7D2;
   --shadow:0 1px 2px rgba(22,36,58,.06),0 6px 16px -10px rgba(22,36,58,.24);
   --sans:"IBM Plex Sans Thai","Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif;
   --serif:"Trirong","Noto Serif Thai",Georgia,serif;
@@ -28,230 +19,166 @@
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --ground:#0E151D;
-    --surface:#172129;
-    --surface-2:#202C37;
-    --ink:#DEE7EE;
-    --ink-2:#A2B2C1;
-    --ink-3:#71828F;
-    --glaze:#79B2DC;
-    --glaze-soft:#1C2E3E;
-    --lake:#37545F;
-    --lake-deep:#5F8B9B;
-    --cinnabar:#EB8168;
-    --cinnabar-soft:#3A2019;
+    --ground:#0E151D; --surface:#172129; --surface-2:#202C37;
+    --ink:#DEE7EE; --ink-2:#A2B2C1; --ink-3:#71828F;
+    --glaze:#79B2DC; --glaze-soft:#1C2E3E;
+    --lake:#37545F; --lake-deep:#5F8B9B;
+    --cinnabar:#EB8168; --cinnabar-soft:#3A2019;
     --line:#2B3843;
-    --ok:#7FC49F;
-    --ok-soft:#182C22;
-    --warn:#D7AA63;
-    --warn-soft:#2E2515;
+    --ok:#7FC49F; --ok-soft:#182C22;
+    --warn:#D7AA63; --warn-soft:#2E2515;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 20px -12px rgba(0,0,0,.7);
   }
 }
 :root[data-theme="dark"]{
-  --ground:#0E151D;
-  --surface:#172129;
-  --surface-2:#202C37;
-  --ink:#DEE7EE;
-  --ink-2:#A2B2C1;
-  --ink-3:#71828F;
-  --glaze:#79B2DC;
-  --glaze-soft:#1C2E3E;
-  --lake:#37545F;
-  --lake-deep:#5F8B9B;
-  --cinnabar:#EB8168;
-  --cinnabar-soft:#3A2019;
+  --ground:#0E151D; --surface:#172129; --surface-2:#202C37;
+  --ink:#DEE7EE; --ink-2:#A2B2C1; --ink-3:#71828F;
+  --glaze:#79B2DC; --glaze-soft:#1C2E3E;
+  --lake:#37545F; --lake-deep:#5F8B9B;
+  --cinnabar:#EB8168; --cinnabar-soft:#3A2019;
   --line:#2B3843;
-  --ok:#7FC49F;
-  --ok-soft:#182C22;
-  --warn:#D7AA63;
-  --warn-soft:#2E2515;
+  --ok:#7FC49F; --ok-soft:#182C22;
+  --warn:#D7AA63; --warn-soft:#2E2515;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 20px -12px rgba(0,0,0,.7);
 }
 
 *{box-sizing:border-box}
-body{
-  margin:0;background:var(--ground);color:var(--ink);
-  font-family:var(--sans);font-size:15px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:660px;margin:0 auto;padding:0 18px;padding-block:22px 56px}
-h1,h2,h3{text-wrap:balance;margin:0}
+[hidden]{display:none!important}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:660px;margin:0 auto;padding:0 18px;padding-block:20px 56px}
+h1,h2,h3,h4{text-wrap:balance;margin:0}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--glaze);outline-offset:2px;border-radius:3px}
 
-/* ---- masthead ---- */
-.mast{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
-.eyebrow{
-  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--glaze);font-weight:600;font-family:var(--sans);
-}
-h1{font-family:var(--serif);font-weight:600;font-size:31px;line-height:1.2;letter-spacing:-.01em}
-.dek{color:var(--ink-2);font-size:14px;max-width:52ch}
+.mast{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--glaze);font-weight:600}
+h1{font-family:var(--serif);font-weight:600;font-size:29px;line-height:1.2;letter-spacing:-.01em}
+.dek{color:var(--ink-2);font-size:13.5px;max-width:52ch}
 
-/* ---- you-are-here ---- */
-.here{
-  display:flex;gap:12px;align-items:flex-start;
-  background:var(--surface);border:1px solid var(--line);
-  border-left:4px solid var(--cinnabar);
-  padding:13px 15px;margin:18px 0 8px;box-shadow:var(--shadow);
+/* ---------- GPS bar (sticky) ---------- */
+.gps{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--cinnabar);
+  box-shadow:var(--shadow);margin:0 0 8px;
 }
-.here .pin{
-  flex:none;width:11px;height:11px;border-radius:50%;
-  background:var(--cinnabar);margin-top:7px;
-  box-shadow:0 0 0 4px var(--cinnabar-soft);
+.gps-main{display:flex;gap:11px;align-items:center;padding:11px 14px}
+.gps-dot{
+  flex:none;width:12px;height:12px;border-radius:50%;background:var(--ink-3);
+  box-shadow:0 0 0 4px var(--surface-2);
 }
-.here b{font-weight:600;display:block;font-size:15px}
-.here .meta{font-size:12.5px;color:var(--ink-2);font-family:var(--mono);letter-spacing:-.01em}
-.clock{margin-left:auto;text-align:right;flex:none}
-.clock .t{font-family:var(--mono);font-weight:600;font-size:17px;letter-spacing:-.02em}
-.clock .d{font-size:11px;color:var(--ink-3);letter-spacing:.04em}
+.gps[data-s="live"] .gps-dot{background:var(--ok);box-shadow:0 0 0 4px var(--ok-soft);animation:ping 2.4s ease-out infinite}
+.gps[data-s="manual"] .gps-dot{background:var(--glaze);box-shadow:0 0 0 4px var(--glaze-soft)}
+.gps[data-s="error"] .gps-dot{background:var(--cinnabar);box-shadow:0 0 0 4px var(--cinnabar-soft)}
+@keyframes ping{0%,100%{box-shadow:0 0 0 4px var(--ok-soft)}50%{box-shadow:0 0 0 8px var(--ok-soft)}}
+.gps-txt{min-width:0;flex:1}
+.gps-txt .l1{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:600;display:block}
+.gps-txt .l2{font-family:var(--mono);font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;display:block;line-height:1.35}
+.gps-act{flex:none;display:flex;gap:6px}
+.mini{
+  font-family:var(--sans);font-size:12px;font-weight:600;padding:6px 10px;
+  border:1px solid var(--glaze);background:transparent;color:var(--glaze);
+  border-radius:2px;cursor:pointer;white-space:nowrap;
+}
+.mini.on{background:var(--glaze);color:var(--surface)}
+.mini:disabled{opacity:.42;cursor:default}
+.gps-manual{border-top:1px dashed var(--line);padding:11px 14px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.gps-manual label{font-size:11.5px;color:var(--ink-2);flex:1 1 100%;line-height:1.5}
+.gps-manual input{
+  flex:1 1 150px;min-width:0;font-family:var(--mono);font-size:13px;padding:7px 9px;
+  border:1px solid var(--line);background:var(--ground);color:var(--ink);border-radius:2px;
+}
+.gps-help{padding:0 14px 11px;font-size:11.5px;color:var(--ink-3);line-height:1.5}
 
-/* ---- alert ---- */
-.alert{
-  background:var(--warn-soft);border:1px solid color-mix(in srgb,var(--warn) 34%,transparent);
-  padding:12px 15px;margin-bottom:26px;font-size:13.5px;color:var(--ink);
-}
+/* ---------- sort switch ---------- */
+.sortbar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:16px 0 4px}
+.sortbar .lbl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.alert{background:var(--warn-soft);border:1px solid color-mix(in srgb,var(--warn) 34%,transparent);padding:11px 14px;margin:14px 0 0;font-size:13px}
 .alert b{color:var(--warn);font-weight:600}
-.alert ul{margin:7px 0 0;padding-left:19px}
-.alert li{margin:2px 0}
+.alert ul{margin:6px 0 0;padding-left:18px}
 
-/* ---- section heads ---- */
-.shead{margin:34px 0 13px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.shead h2{font-family:var(--serif);font-size:21px;font-weight:600}
+.shead{margin:30px 0 11px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.shead h2{font-family:var(--serif);font-size:20px;font-weight:600}
 .shead .hint{font-size:12px;color:var(--ink-3)}
 
-/* ---- cross-section diagram ---- */
-.crosssec{
-  display:grid;grid-template-columns:24px repeat(3,1fr);gap:7px;
-  background:var(--surface);border:1px solid var(--line);
-  padding:13px 13px 15px;box-shadow:var(--shadow);
-}
-.lakecol{
-  background:linear-gradient(90deg,var(--lake-deep),var(--lake));
-  display:flex;align-items:center;justify-content:center;
-  border-radius:2px;
-}
-.lakecol span{
-  writing-mode:vertical-rl;transform:rotate(180deg);
-  font-size:10px;letter-spacing:.14em;color:#fff;font-weight:600;
-  text-shadow:0 1px 2px rgba(0,0,0,.35);white-space:nowrap;
-}
-.stcol{display:flex;flex-direction:column;gap:6px;min-width:0}
-.sthead{border-bottom:2px solid var(--glaze);padding-bottom:6px;margin-bottom:2px}
-.sthead .nm{font-family:var(--serif);font-size:14.5px;font-weight:600;line-height:1.25;display:block}
-.sthead .dist{
-  font-size:10px;letter-spacing:.06em;color:var(--ink-3);
-  font-family:var(--mono);text-transform:uppercase;
-}
+/* ---------- cross-section ---------- */
+.crosssec{display:grid;grid-template-columns:22px repeat(3,1fr);gap:6px;background:var(--surface);border:1px solid var(--line);padding:12px;box-shadow:var(--shadow)}
+.lakecol{background:linear-gradient(90deg,var(--lake-deep),var(--lake));display:flex;align-items:center;justify-content:center;border-radius:2px}
+.lakecol span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:9.5px;letter-spacing:.14em;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.35);white-space:nowrap}
+.stcol{display:flex;flex-direction:column;gap:5px;min-width:0}
+.sthead{border-bottom:2px solid var(--glaze);padding-bottom:5px}
+.sthead .nm{font-family:var(--serif);font-size:14px;font-weight:600;line-height:1.25;display:block}
+.sthead .dist{font-size:9.5px;letter-spacing:.05em;color:var(--ink-3);font-family:var(--mono);text-transform:uppercase}
 .stcol[data-you="1"] .sthead{border-bottom-color:var(--cinnabar)}
 .stcol[data-you="1"] .sthead .dist{color:var(--cinnabar);font-weight:600}
-.chip{
-  display:block;width:100%;text-align:left;cursor:pointer;
-  background:var(--surface-2);border:1px solid transparent;
-  color:var(--ink);font-family:var(--sans);font-size:12px;line-height:1.35;
-  padding:7px 8px;border-radius:2px;
-}
+.chip{display:block;width:100%;text-align:left;cursor:pointer;background:var(--surface-2);border:1px solid transparent;color:var(--ink);font-family:var(--sans);font-size:11.5px;line-height:1.35;padding:6px 7px;border-radius:2px}
 .chip:hover{border-color:var(--glaze)}
 .chip .cn{display:block;font-weight:500;overflow-wrap:anywhere}
-.chip .cno{
-  font-family:var(--mono);font-size:10.5px;color:var(--ink-3);
-  font-variant-numeric:tabular-nums;
-}
+.chip .cno{font-family:var(--mono);font-size:10px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .chip[data-you="1"]{background:var(--cinnabar-soft);border-color:var(--cinnabar)}
 .chip[data-you="1"] .cn{color:var(--cinnabar);font-weight:600}
-.crossnote{
-  grid-column:1/-1;margin-top:9px;padding-top:11px;border-top:1px dashed var(--line);
-  font-size:11.5px;color:var(--ink-2);
-}
+.chip[data-fix="1"] .cno{color:var(--ok);font-weight:600}
+.crossnote{grid-column:1/-1;margin-top:8px;padding-top:10px;border-top:1px dashed var(--line);font-size:11.5px;color:var(--ink-2)}
 .crossnote b{font-family:var(--serif);font-weight:600;color:var(--ink)}
-.caption{font-size:11.5px;color:var(--ink-3);margin-top:9px;line-height:1.55}
+.caption{font-size:11.5px;color:var(--ink-3);margin-top:8px;line-height:1.55}
 
-/* ---- tier groups ---- */
-.tier{margin-top:30px}
-.tierhead{display:flex;align-items:baseline;gap:9px;margin-bottom:11px;flex-wrap:wrap}
-.tiernum{
-  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--surface);
-  background:var(--glaze);padding:2px 7px;border-radius:2px;flex:none;
-}
-.tierhead h3{font-family:var(--serif);font-size:18px;font-weight:600}
+/* ---------- groups + plates ---------- */
+.tier{margin-top:26px}
+.tierhead{display:flex;align-items:baseline;gap:9px;margin-bottom:10px;flex-wrap:wrap}
+.tiernum{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--surface);background:var(--glaze);padding:2px 7px;border-radius:2px;flex:none}
+.tierhead h3{font-family:var(--serif);font-size:17px;font-weight:600}
 .tierhead .sub{font-size:12px;color:var(--ink-3)}
-
-/* ---- place plate ---- */
-.plates{display:flex;flex-direction:column;gap:10px}
-.plate{
-  background:var(--surface);border:1px solid var(--line);
-  padding:14px 15px;display:grid;gap:9px;box-shadow:var(--shadow);
-}
-.ptop{display:flex;gap:11px;align-items:flex-start}
-.pno{
-  flex:none;min-width:42px;height:42px;display:grid;place-items:center;
-  background:var(--glaze-soft);border:1px solid color-mix(in srgb,var(--glaze) 32%,transparent);
-  font-family:var(--mono);font-weight:600;font-size:14px;color:var(--glaze);
-  font-variant-numeric:tabular-nums;border-radius:2px;padding:0 5px;
-}
+.plates{display:flex;flex-direction:column;gap:9px}
+.plate{background:var(--surface);border:1px solid var(--line);padding:13px 14px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.plate[data-near="1"]{border-color:var(--ok);border-left:4px solid var(--ok)}
+.ptop{display:flex;gap:10px;align-items:flex-start}
+.pno{flex:none;min-width:40px;height:40px;display:grid;place-items:center;background:var(--glaze-soft);border:1px solid color-mix(in srgb,var(--glaze) 32%,transparent);font-family:var(--mono);font-weight:600;font-size:13.5px;color:var(--glaze);font-variant-numeric:tabular-nums;border-radius:2px;padding:0 5px}
 .pno.empty{font-size:15px;color:var(--ink-3);background:var(--surface-2);border-style:dashed;border-color:var(--line)}
 .pname{min-width:0;flex:1}
-.pname h4{margin:0;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
+.pname h4{font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
 .pname .kind{font-size:12px;color:var(--ink-3);display:block;margin-top:1px}
-.pstatus{
-  flex:none;font-size:11px;font-weight:600;padding:3px 8px;border-radius:2px;
-  white-space:nowrap;letter-spacing:.02em;
-}
+.pbadges{display:flex;flex-direction:column;gap:4px;align-items:flex-end;flex:none}
+.pstatus{font-size:11px;font-weight:600;padding:3px 8px;border-radius:2px;white-space:nowrap}
 .pstatus[data-s="open"]{background:var(--ok-soft);color:var(--ok)}
 .pstatus[data-s="closed"]{background:var(--cinnabar-soft);color:var(--cinnabar)}
 .pstatus[data-s="unknown"]{background:var(--surface-2);color:var(--ink-3)}
-.prow{
-  font-size:12.5px;color:var(--ink-2);display:flex;gap:7px;align-items:baseline;
-  padding-top:1px;
-}
-.prow .lbl{
-  flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);font-weight:600;min-width:46px;padding-top:2px;
-}
+.pdist{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ok);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pdist.est{color:var(--ink-3);font-weight:500}
+.prow{font-size:12.5px;color:var(--ink-2);display:flex;gap:7px;align-items:baseline}
+.prow .lbl{flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;min-width:46px;padding-top:2px}
 .prow .val{min-width:0;overflow-wrap:anywhere}
 .prow .val.mono{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12px}
-.flag{
-  font-size:11.5px;padding:7px 10px;background:var(--warn-soft);
-  color:var(--ink);border-left:3px solid var(--warn);
-}
+.flag{font-size:11.5px;padding:7px 10px;background:var(--warn-soft);color:var(--ink);border-left:3px solid var(--warn)}
 .flag b{color:var(--warn);font-weight:600}
-.pacts{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
-.btn{
-  flex:1 1 auto;min-width:132px;text-align:center;text-decoration:none;
-  font-family:var(--sans);font-size:13px;font-weight:600;
-  padding:9px 13px;border-radius:2px;border:1px solid var(--glaze);
-}
+.fixed{font-size:11.5px;padding:7px 10px;background:var(--ok-soft);color:var(--ink);border-left:3px solid var(--ok);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.fixed b{color:var(--ok);font-weight:600}
+.fixed .co{font-family:var(--mono);font-size:11.5px}
+.linkish{background:none;border:none;padding:0;font:inherit;color:var(--cinnabar);text-decoration:underline;cursor:pointer}
+.pacts{display:flex;gap:7px;flex-wrap:wrap}
+.btn{flex:1 1 auto;min-width:calc(50% - 4px);text-align:center;text-decoration:none;font-family:var(--sans);font-size:12.5px;font-weight:600;padding:9px 8px;border-radius:2px;border:1px solid var(--glaze);cursor:pointer}
 .btn.solid{background:var(--glaze);color:var(--surface)}
 .btn.ghost{background:transparent;color:var(--glaze)}
+.btn.mark{border-color:var(--ok);color:var(--ok);background:transparent;flex-basis:100%}
+.btn.mark[data-done="1"]{background:var(--ok-soft)}
 .btn:hover{opacity:.87}
 
-/* ---- import card ---- */
-.howto{
-  background:var(--surface);border:1px solid var(--line);
-  padding:17px 18px;box-shadow:var(--shadow);
-}
-.howto ol{margin:11px 0 0;padding-left:20px;font-size:13.5px}
-.howto li{margin:7px 0}
-.howto code{
-  font-family:var(--mono);font-size:12px;background:var(--surface-2);
-  padding:1px 5px;border-radius:2px;
-}
-/* ---- sources ---- */
-.src{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3)}
-.src h3{font-family:var(--serif);font-size:15px;color:var(--ink-2);margin-bottom:8px;font-weight:600}
+.howto{background:var(--surface);border:1px solid var(--line);padding:16px 17px;box-shadow:var(--shadow)}
+.howto ol{margin:10px 0 0;padding-left:19px;font-size:13.5px}
+.howto li{margin:6px 0}
+.howto code{font-family:var(--mono);font-size:12px;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+.dump{width:100%;min-height:110px;font-family:var(--mono);font-size:11.5px;padding:9px;border:1px solid var(--line);background:var(--ground);color:var(--ink);border-radius:2px;margin-top:10px}
+.src{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3)}
+.src h3{font-family:var(--serif);font-size:15px;color:var(--ink-2);margin-bottom:7px;font-weight:600}
 .src ul{margin:0;padding-left:18px}
 .src li{margin:4px 0;overflow-wrap:anywhere}
 .src a{color:var(--glaze)}
 
 @media (max-width:430px){
-  .wrap{padding:0 14px;padding-block:18px 48px}
-  h1{font-size:26px}
-  .crosssec{grid-template-columns:18px repeat(3,1fr);gap:5px;padding:10px 10px 12px}
-  .sthead .nm{font-size:13px}
-  .chip{padding:6px 7px;font-size:11.5px}
-  .clock{display:none}
-  .btn{min-width:calc(50% - 4px);padding:9px 6px;font-size:12.5px}
+  .wrap{padding:0 13px;padding-block:16px 48px}
+  h1{font-size:25px}
+  .crosssec{grid-template-columns:16px repeat(3,1fr);gap:4px;padding:9px}
+  .sthead .nm{font-size:12.5px}
+  .chip{padding:5px 6px;font-size:11px}
+  .gps-main{padding:10px 12px;gap:9px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -261,71 +188,79 @@ h1{font-family:var(--serif);font-weight:600;font-size:31px;line-height:1.2;lette
   <header class="mast">
     <span class="eyebrow">ย่านเมืองเก่า · ตำบลบ่อยาง</span>
     <h1>หมุดเมืองเก่าสงขลา</h1>
-    <p class="dek">11 จุดที่คุณกรส่งมา บวกจุดที่คุณยืนอยู่ จัดเรียงตามว่าห่างจากคุณกี่ถนน พร้อมลิงก์เปิด Google Maps และนำทางเดินทีละจุด</p>
+    <p class="dek">เปิด GPS แล้วหน้านี้จะเรียงจุดที่ใกล้คุณที่สุดขึ้นก่อน ทุกปุ่มนำทางใช้ตำแหน่งจริงของคุณเป็นจุดเริ่ม</p>
   </header>
 
-  <div class="here">
-    <span class="pin" aria-hidden="true"></span>
-    <div>
-      <b>คุณอยู่ที่ บาจีปังนมสด</b>
-      <span class="meta">91 ถ.นางงาม · ต.บ่อยาง</span>
+  <div class="gps" id="gps" data-s="init">
+    <div class="gps-main">
+      <span class="gps-dot" aria-hidden="true"></span>
+      <span class="gps-txt">
+        <span class="l1" id="gps-l1">ตำแหน่งของคุณ</span>
+        <span class="l2" id="gps-l2">กำลังขอสิทธิ์ GPS…</span>
+      </span>
+      <span class="gps-act">
+        <button type="button" class="mini" id="gps-btn">เปิด GPS</button>
+        <button type="button" class="mini" id="gps-toggle" hidden>กรอกเอง</button>
+      </span>
     </div>
-    <div class="clock">
-      <div class="t" id="clock-t">--:--</div>
-      <div class="d" id="clock-d">เวลาไทย</div>
+    <div class="gps-manual" id="gps-manual" hidden>
+      <label for="gps-in">กรอกพิกัดเองก็ได้ — ในแอป Google Maps กดค้างตรงที่คุณยืน แล้วคัดลอกตัวเลขมาวาง</label>
+      <input id="gps-in" type="text" inputmode="decimal" placeholder="7.19750, 100.59300" autocomplete="off">
+      <button type="button" class="mini on" id="gps-set">ใช้พิกัดนี้</button>
     </div>
+    <p class="gps-help" id="gps-help" hidden></p>
   </div>
 
   <div class="alert" id="alert" hidden></div>
 
+  <div class="sortbar">
+    <span class="lbl">เรียงตาม</span>
+    <button type="button" class="mini" id="sort-gps" disabled>ระยะ GPS จริง</button>
+    <button type="button" class="mini on" id="sort-street">ลำดับถนน</button>
+  </div>
+
+  <div id="tiers"></div>
+
   <section>
     <div class="shead">
       <h2>ผังถนนเมืองเก่า</h2>
-      <span class="hint">ทะเลสาบอยู่ซ้าย · คุณอยู่ขวาสุด</span>
+      <span class="hint">ทะเลสาบอยู่ซ้าย</span>
     </div>
     <div class="crosssec" id="crosssec">
       <div class="lakecol" aria-hidden="true"><span>ทะเลสาบสงขลา</span></div>
     </div>
-    <p class="caption">
-      ผังนี้แสดง <b>ลำดับถนน</b> เท่านั้น ไม่ใช่แผนที่ตามมาตราส่วน — ตำแหน่งตามความยาวถนนยังไม่ได้ยืนยัน
-      กดชื่อร้านเพื่อเลื่อนไปดูรายละเอียด แล้วใช้ปุ่มนำทางเพื่อดูระยะเดินจริงจาก Google
-    </p>
+    <p class="caption">ผังนี้แสดง <b>ลำดับถนน</b> เท่านั้น ไม่ใช่แผนที่ตามมาตราส่วน จุดที่คุณบันทึกพิกัดแล้วจะขึ้นเลขพิกัดเป็นสีเขียว</p>
   </section>
 
-  <div id="tiers"></div>
-
   <section class="tier">
-    <div class="shead">
-      <h2>ปักหมุดทั้ง 12 จุดเข้า Google My Maps</h2>
-    </div>
+    <div class="shead"><h2>พิกัดที่คุณบันทึกไว้</h2></div>
     <div class="howto">
       <p style="margin:0;font-size:13.5px;color:var(--ink-2)">
-        ไฟล์ <code>pins.csv</code> ในโฟลเดอร์เดียวกันนี้ import เข้า Google My Maps ได้เลย
-        ตัว Google จะเป็นคนหาพิกัดจากที่อยู่เอง — ผมไม่ได้กรอกพิกัดเองเพื่อไม่ให้หมุดผิดตำแหน่ง
+        ทุกครั้งที่คุณกรกดปุ่ม <b>บันทึกพิกัดจุดนี้</b> ตอนยืนอยู่หน้าร้าน หน้านี้จะเก็บพิกัด GPS จริงไว้ในเครื่อง
+        เดินครบย่านก็จะได้ชุดพิกัดจริงทั้งหมดที่ไม่มีในเว็บไหน ก๊อปข้อความข้างล่างส่งกลับมาให้ผมได้เลย
+        เดี๋ยวผมทำเป็นไฟล์ KML ให้ import เข้า Google My Maps แบบพิกัดเป๊ะ
       </p>
-      <ol>
-        <li>เปิด <code>mymaps.google.com</code> แล้วกด <b>สร้างแผนที่ใหม่</b></li>
-        <li>ในเลเยอร์ กด <b>นำเข้า</b> แล้วเลือกไฟล์ <code>pins.csv</code></li>
-        <li>เลือกคอลัมน์ <code>ที่อยู่</code> เป็นตัวระบุตำแหน่ง และ <code>ชื่อ</code> เป็นชื่อหมุด</li>
-        <li>เช็กหมุดที่ไม่มีเลขที่บ้าน (5 จุด) — Google จะวางไว้กลางถนน ต้องลากปรับเอง</li>
-      </ol>
+      <textarea class="dump" id="dump" readonly aria-label="พิกัดที่บันทึกไว้"></textarea>
+      <div class="pacts" style="margin-top:9px">
+        <button type="button" class="btn ghost" id="copy">คัดลอกพิกัดทั้งหมด</button>
+        <button type="button" class="btn ghost" id="clear">ล้างพิกัดที่บันทึก</button>
+      </div>
     </div>
   </section>
 
   <section class="src">
     <h3>ที่มาของข้อมูล</h3>
-    <p style="margin:0 0 8px">ที่อยู่ทุกจุดมาจากการค้นเว็บเมื่อ 15 ก.ย. 2026 ไม่มีพิกัดที่กรอกเอง เวลาเปิด-ปิดเป็นข้อมูลที่ประกาศไว้ ควรโทรเช็กก่อนไปจุดที่ติดป้าย "ต้องเช็ก"</p>
+    <p style="margin:0 0 8px">ที่อยู่ทุกจุดมาจากการค้นเว็บเมื่อ 15 ก.ย. 2026 <b>ไม่มีพิกัดที่กรอกเอง</b> — พิกัดมาจาก GPS ของคุณกรเท่านั้น เวลาเปิด-ปิดเป็นข้อมูลที่ประกาศไว้ ควรโทรเช็กจุดที่ติดป้าย "ต้องเช็ก"</p>
     <ul>
-      <li>ลำดับถนน (นครนอก ติดทะเลสาบ) — <a href="https://www.komchadluek.net/scoop/507905">คมชัดลึก: เมืองเก่าสงขลา ถนนเก้าห้อง-นครนอก-นครใน</a></li>
+      <li>ลำดับถนน (นครนอก ติดทะเลสาบ) — <a href="https://www.komchadluek.net/scoop/507905">คมชัดลึก</a></li>
       <li>บาจีปังนมสด 91 ถ.นางงาม — <a href="https://www.wongnai.com/restaurants/3111699KZ-%E0%B8%9A%E0%B8%B2%E0%B8%88%E0%B8%B5%E0%B8%9B%E0%B8%B1%E0%B8%87%E0%B8%99%E0%B8%A1%E0%B8%AA%E0%B8%94-%E0%B8%96%E0%B8%99%E0%B8%99%E0%B8%99%E0%B8%B2%E0%B8%87%E0%B8%87%E0%B8%B2%E0%B8%A1">Wongnai</a></li>
       <li>Nusantara 261 ถ.นครใน — <a href="https://www.wondersongkhlaoldtown.com/food/detail/100">ย่านเมืองเก่าสงขลา</a></li>
       <li>ดาษดื่น 259 ถ.นครใน — <a href="https://readthecloud.co/dasdnn-songkhla/">The Cloud</a></li>
       <li>บ้านนครใน 121 ถ.นครใน — <a href="https://db.sac.or.th/museum/museum-detail/1591">ฐานข้อมูลพิพิธภัณฑ์ ศมส.</a></li>
       <li>Studio 55 เลขที่ 55 ถ.นครนอก — <a href="https://www.ryoiireview.com/restaurant/view/15031">Ryoii</a></li>
-      <li>KingKong Lemonday ถ.นครนอก — <a href="https://www.wongnai.com/restaurants/1430680JB-%E0%B8%84%E0%B8%B4%E0%B8%87%E0%B8%84%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%A5%E0%B8%A1%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%A2%E0%B9%8C-%E0%B9%80%E0%B8%9A%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B8%B5%E0%B9%88-%E0%B8%96%E0%B8%99%E0%B8%99-%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%99%E0%B8%AD%E0%B8%81">Wongnai</a></li>
-      <li>Pakorn Architect ถ.นครนอก ตรงข้ามบ้านนครใน — <a href="https://www.wongnai.com/reviews/ebc2a650f10542379f6cf00eab89f449">Wongnai</a></li>
+      <li>Pakorn Architect ถ.นครนอก — <a href="https://www.wongnai.com/reviews/ebc2a650f10542379f6cf00eab89f449">Wongnai</a></li>
       <li>บ้านอ้ายเหลียน 125 ถ.หนองจิก — <a href="https://www.wongnai.com/attractions/3526880DZ-ai-lian-china-house-%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B9%89%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%AB%E0%B8%A5%E0%B8%B5%E0%B8%A2%E0%B8%99">Wongnai</a></li>
-      <li>TCDC สงขลา อาคารสถานีดับเพลิงเก่า ถ.สงขลาบุรี — <a href="https://www.cea.or.th/th/news-updates/mou-tcdc-songkha">CEA</a></li>
+      <li>TCDC สงขลา ถ.สงขลาบุรี — <a href="https://www.cea.or.th/th/news-updates/mou-tcdc-songkha">CEA</a></li>
       <li>ฮับเซ่ง ถ.นางงาม — <a href="https://www.hatyaifocus.com/forums-detail/3769/">Hatyai Focus</a></li>
       <li>ซอยยุโรป ถ.นครนอก — <a href="https://www.nairobroo.com/travel/street-art-%E0%B8%AA%E0%B8%87%E0%B8%82%E0%B8%A5%E0%B8%B2/">Nairobroo</a></li>
     </ul>
@@ -334,295 +269,401 @@ h1{font-family:var(--serif);font-weight:600;font-size:31px;line-height:1.2;lette
 
 <script>
 "use strict";
-var ORIGIN = "บาจีปังนมสด 91 ถนนนางงาม ตำบลบ่อยาง อำเภอเมืองสงขลา สงขลา 90000";
-var D = 24 * 60;
+var FALLBACK_ORIGIN = "บาจีปังนมสด 91 ถนนนางงาม ตำบลบ่อยาง อำเภอเมืองสงขลา สงขลา 90000";
+var LS = "skl-oldtown-fixes-v1";
 
-/* sched: index 0=อาทิตย์ .. 6=เสาร์ ; null = ปิด ; [เปิด,ปิด] เป็นนาที */
-function all(o, c) { return [[o,c],[o,c],[o,c],[o,c],[o,c],[o,c],[o,c]]; }
-function hm(h, m) { return h * 60 + (m || 0); }
+function all(o,c){return [[o,c],[o,c],[o,c],[o,c],[o,c],[o,c],[o,c]];}
+function hm(h,m){return h*60+(m||0);}
 
 var PLACES = [
-  { id:"bhajipang", you:true, name:"บาจีปังนมสด", short:"บาจีปังนมสด", kind:"ปังนมสด ของหวาน",
-    street:"nangngam", no:"91", tier:0,
-    addr:"91 ถ.นางงาม ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
-    q:"บาจีปังนมสด ถนนนางงาม สงขลา",
-    sched:all(hm(11),hm(22)), hoursTxt:"ทุกวัน 11:00–22:00", solid:true,
-    note:"จุดเริ่มต้น — คุณกรอยู่ที่นี่" },
-
+  { id:"bhajipang", you:true, name:"บาจีปังนมสด", short:"บาจีปัง", kind:"ปังนมสด ของหวาน",
+    street:"nangngam", no:"91", tier:1, addr:"91 ถ.นางงาม ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
+    q:"บาจีปังนมสด ถนนนางงาม สงขลา", sched:all(hm(11),hm(22)), hoursTxt:"ทุกวัน 11:00–22:00",
+    note:"จุดที่คุณเริ่มเดิน" },
   { id:"hubseng", name:"ฮับเซ่ง", short:"ฮับเซ่ง", kind:"สภากาแฟ น้ำชาโบราณ",
-    street:"nangngam", no:null, tier:1,
-    addr:"ถ.นางงาม ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
+    street:"nangngam", no:null, tier:1, addr:"ถ.นางงาม ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
     q:"ฮับเซ่ง ถนนนางงาม สงขลา",
     sched:[[hm(6),hm(15)],[hm(6),hm(12)],[hm(6),hm(12)],[hm(6),hm(12)],[hm(6),hm(12)],[hm(6),hm(12)],[hm(6),hm(15)]],
-    hoursTxt:"จ–ศ 06:00–12:00 · ส–อา 06:00–15:00", solid:true,
+    hoursTxt:"จ–ศ 06:00–12:00 · ส–อา 06:00–15:00",
     note:"สภากาแฟเก่าแก่ร่วม 100 ปี · โทร 089-018-2828",
-    flag:"ยังไม่พบเลขที่บ้าน — ใช้ปุ่มค้นชื่อร้านจะแม่นกว่า" },
-
+    flag:"ยังไม่พบเลขที่บ้าน" },
   { id:"chongdee", name:"บ้านจงดี ขนมไทย", short:"บ้านจงดี", kind:"ขนมไทยโบราณ",
-    street:"nangngam", no:null, tier:1,
-    addr:"ถ.นางงาม (บางแหล่งระบุ ถ.หนองจิก) ต.บ่อยาง อ.เมืองสงขลา สงขลา",
-    q:"บ้านจงดี ขนมไทย สงขลา",
-    sched:null, hoursTxt:"ยังไม่ยืนยันเวลาเปิด", solid:false,
+    street:"nangngam", no:null, tier:1, addr:"ถ.นางงาม (บางแหล่งระบุ ถ.หนองจิก) ต.บ่อยาง สงขลา",
+    q:"บ้านจงดี ขนมไทย สงขลา", sched:null, hoursTxt:"ยังไม่ยืนยันเวลาเปิด",
     note:"ขนมสัมปันนี ทองเอก สูตรโบราณ",
-    flag:"แหล่งข้อมูลระบุถนนไม่ตรงกัน (นางงาม / หนองจิก) และไม่มีเลขที่ — ต้องเช็กหน้างานหรือทาง Facebook ก่อน" },
-
+    flag:"แหล่งข้อมูลระบุถนนไม่ตรงกัน (นางงาม / หนองจิก) และไม่มีเลขที่ — ถ้าเจอแล้วกดบันทึกพิกัดไว้เลย" },
   { id:"bannakornnai", name:"บ้านนครใน", short:"บ้านนครใน", kind:"บ้านโบราณ พิพิธภัณฑ์",
-    street:"nakhonnai", no:"121", tier:2,
-    addr:"121 ถ.นครใน ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
-    q:"บ้านนครใน ถนนนครใน สงขลา",
-    sched:all(hm(8),hm(18)), hoursTxt:"08:00–18:00", solid:true,
+    street:"nakhonnai", no:"121", tier:2, addr:"121 ถ.นครใน ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
+    q:"บ้านนครใน ถนนนครใน สงขลา", sched:all(hm(8),hm(18)), hoursTxt:"08:00–18:00",
     note:"บ้านเก่าราว 300 ปี เข้าชมฟรี · โทร 093-606-8866",
     flag:"คุณกรเขียนมาว่า “บ้านในนคร” — ชื่อจริงคือ บ้านนครใน และคนละที่กับ บ้านอ้ายเหลียน" },
-
   { id:"dasduen", name:"ดาษดื่น", short:"ดาษดื่น", kind:"ของฝาก ของที่ระลึก",
-    street:"nakhonnai", no:"259", tier:2,
-    addr:"259 ถ.นครใน ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
-    q:"ดาษดื่น ถนนนครใน สงขลา",
-    sched:all(hm(12),hm(20)), hoursTxt:"12:00–20:00", solid:false,
-    note:"อยู่ติดกับ Nusantara (261) — เดินต่อได้เลย",
-    flag:"บางแหล่งระบุเปิดเฉพาะ ศุกร์–จันทร์ ซึ่งแปลว่าวันอังคารอาจปิด ควรโทรเช็ก" },
-
+    street:"nakhonnai", no:"259", tier:2, addr:"259 ถ.นครใน ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
+    q:"ดาษดื่น ถนนนครใน สงขลา", sched:all(hm(12),hm(20)), hoursTxt:"12:00–20:00",
+    note:"อยู่ติดกับ Nusantara (261)",
+    flag:"บางแหล่งระบุเปิดเฉพาะ ศุกร์–จันทร์ วันอังคารอาจปิด" },
   { id:"nusantara", name:"Nusantara", short:"Nusantara", kind:"คาเฟ่ชา ร้านแผ่นเสียง",
-    street:"nakhonnai", no:"261", tier:2,
-    addr:"261 ถ.นครใน ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
+    street:"nakhonnai", no:"261", tier:2, addr:"261 ถ.นครใน ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
     q:"Nusantara นูซันตารา ถนนนครใน สงขลา",
     sched:[[hm(12),hm(20)],[hm(12),hm(20)],null,[hm(12),hm(20)],[hm(12),hm(20)],[hm(12),hm(20)],[hm(12),hm(20)]],
-    hoursTxt:"12:00–20:00 · ปิดวันอังคาร", solid:true,
-    note:"อยู่ติดกับ ดาษดื่น (259)" },
-
+    hoursTxt:"12:00–20:00 · ปิดวันอังคาร", note:"อยู่ติดกับ ดาษดื่น (259)" },
   { id:"studio55", name:"Studio 55", short:"Studio 55", kind:"คาเฟ่วิวทะเลสาบ",
-    street:"nakhonnok", no:"55", tier:3,
-    addr:"55 ถ.นครนอก ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
-    q:"Studio 55 ถนนนครนอก สงขลา",
-    sched:all(hm(10),hm(18)+30), hoursTxt:"ราว 10:00–18:30", solid:false,
+    street:"nakhonnok", no:"55", tier:3, addr:"55 ถ.นครนอก ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
+    q:"Studio 55 ถนนนครนอก สงขลา", sched:all(hm(10),hm(18)+30), hoursTxt:"ราว 10:00–18:30",
     note:"โทร 098-671-7255 · เลข 55 ในชื่อร้านคือเลขที่บ้าน",
-    flag:"เวลาเปิดแต่ละแหล่งไม่ตรงกัน และบางแหล่งระบุปิดวันอังคาร ควรโทรเช็กก่อนเดินไป" },
-
+    flag:"เวลาเปิดแต่ละแหล่งไม่ตรงกัน บางแหล่งระบุปิดวันอังคาร" },
   { id:"kingkong", name:"KingKong Lemonday", short:"KingKong", kind:"เลมอนเนด เบเกอรี่",
-    street:"nakhonnok", no:null, tier:3,
-    addr:"ถ.นครนอก ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
-    q:"คิงคองเลม่อนเดย์ เบเกอรี่ ถนนนครนอก สงขลา",
-    sched:null, hoursTxt:"ยังไม่ยืนยันเวลาเปิด", solid:false,
+    street:"nakhonnok", no:null, tier:3, addr:"ถ.นครนอก ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
+    q:"คิงคองเลม่อนเดย์ เบเกอรี่ ถนนนครนอก สงขลา", sched:null, hoursTxt:"ยังไม่ยืนยันเวลาเปิด",
     note:"รถเลม่อนสีเหลือง",
-    flag:"ร้านมีทั้งหน้าร้านและออกบูธนอกสถานที่ — ควรเช็ก Instagram/Facebook ก่อนว่าวันนี้จอดอยู่ไหม" },
-
+    flag:"มีทั้งหน้าร้านและออกบูธนอกสถานที่ — เช็ก Instagram ก่อนว่าวันนี้จอดอยู่ไหม" },
   { id:"pakorn", name:"Pakorn Architect", short:"Pakorn Arch.", kind:"ออฟฟิศสถาปนิก",
-    street:"nakhonnok", no:null, tier:3,
-    addr:"ถ.นครนอก ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
-    q:"Pakorn Architect ถนนนครนอก สงขลา",
-    sched:all(hm(8),hm(17)), hoursTxt:"08:00–17:00", solid:false,
+    street:"nakhonnok", no:null, tier:3, addr:"ถ.นครนอก ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
+    q:"Pakorn Architect ถนนนครนอก สงขลา", sched:all(hm(8),hm(17)), hoursTxt:"08:00–17:00",
     note:"อยู่ตรงข้ามบ้านนครใน เปิดโล่งเห็นทะเลสาบ · ทีมร่วมออกแบบ TCDC สงขลา",
-    flag:"เป็นออฟฟิศทำงาน ไม่ใช่ร้าน และไม่ระบุวันหยุด — ควรทักไปก่อนถ้าจะเข้าไปดู" },
-
+    flag:"เป็นออฟฟิศทำงาน ไม่ใช่ร้าน ควรทักไปก่อนถ้าจะเข้าไปดู" },
   { id:"soiyurope", name:"ซอยยุโรป", short:"ซอยยุโรป", kind:"สตรีทอาร์ต จุดถ่ายรูป",
-    street:"nakhonnok", no:null, tier:3,
-    addr:"ซอยแยกจาก ถ.นครนอก ต.บ่อยาง อ.เมืองสงขลา สงขลา",
-    q:"ซอยยุโรป เมืองเก่าสงขลา ถนนนครนอก",
-    sched:"always", hoursTxt:"กลางแจ้ง เข้าได้ตลอด", solid:true,
+    street:"nakhonnok", no:null, tier:3, addr:"ซอยแยกจาก ถ.นครนอก ต.บ่อยาง สงขลา",
+    q:"ซอยยุโรป เมืองเก่าสงขลา ถนนนครนอก", sched:"always", hoursTxt:"กลางแจ้ง เข้าได้ตลอด",
     note:"บางแหล่งเรียก ซอยดอกไม้",
-    flag:"ปากซอยยังไม่ยืนยันแน่ชัด — ถามคนแถวนั้นได้เลย คนรู้จักกันทั้งย่าน" },
-
+    flag:"ปากซอยยังไม่ยืนยันแน่ชัด — เจอแล้วกดบันทึกพิกัดไว้เลย" },
   { id:"ailian", name:"บ้านอ้ายเหลียน", short:"บ้านอ้ายเหลียน", kind:"ของฝาก พิพิธภัณฑ์จีน",
-    street:"cross", crossName:"ถ.หนองจิก", no:"125", tier:4,
-    addr:"125 ถ.หนองจิก ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
-    q:"Ai Lian China House บ้านอ้ายเหลียน สงขลา",
-    sched:all(hm(8),hm(17)), hoursTxt:"08:00–17:00", solid:true,
+    street:"cross", no:"125", tier:4, addr:"125 ถ.หนองจิก ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
+    q:"Ai Lian China House บ้านอ้ายเหลียน สงขลา", sched:all(hm(8),hm(17)), hoursTxt:"08:00–17:00",
     note:"เข้าชมฟรี ของสะสมสไตล์จีน",
-    flag:"บางแหล่งเรียกว่า “บ้านนครใน” ด้วย ระวังสับสนกับ บ้านนครใน 121 ที่เป็นคนละที่" },
-
+    flag:"บางแหล่งเรียกว่า “บ้านนครใน” ด้วย ระวังสับสนกับ บ้านนครใน 121" },
   { id:"tcdc", name:"TCDC สงขลา", short:"TCDC", kind:"ศูนย์สร้างสรรค์งานออกแบบ",
-    street:"cross", crossName:"ถ.สงขลาบุรี", no:null, tier:4,
-    addr:"อาคารสถานีดับเพลิงหลังเก่า ถ.สงขลาบุรี ต.บ่อยาง อ.เมืองสงขลา สงขลา 90000",
-    q:"TCDC สงขลา ถนนสงขลาบุรี",
-    sched:null, hoursTxt:"ยังไม่ยืนยันเวลาเปิด", solid:false,
-    note:"เป็นลานจอดรถหลักของย่านด้วย ถ้าจะกลับไปเอารถ",
-    flag:"ยังไม่พบเวลาเปิด-ปิดที่ยืนยันได้ — TCDC หลายสาขาปิดวันจันทร์ ควรเช็กเพจ CEA ก่อน" }
+    street:"cross", no:null, tier:4, addr:"อาคารสถานีดับเพลิงหลังเก่า ถ.สงขลาบุรี ต.บ่อยาง สงขลา",
+    q:"TCDC สงขลา ถนนสงขลาบุรี", sched:null, hoursTxt:"ยังไม่ยืนยันเวลาเปิด",
+    note:"เป็นลานจอดรถหลักของย่านด้วย",
+    flag:"ยังไม่พบเวลาเปิด-ปิดที่ยืนยันได้ — TCDC หลายสาขาปิดวันจันทร์" }
 ];
 
 var STREETS = [
-  { key:"nakhonnok",  name:"ถ.นครนอก",  dist:"ห่าง 2 ถนน" },
-  { key:"nakhonnai",  name:"ถ.นครใน",   dist:"ห่าง 1 ถนน" },
-  { key:"nangngam",   name:"ถ.นางงาม",  dist:"ถนนที่คุณยืนอยู่" }
+  { key:"nakhonnok", name:"ถ.นครนอก", dist:"ริมทะเลสาบ" },
+  { key:"nakhonnai", name:"ถ.นครใน",  dist:"เส้นกลาง" },
+  { key:"nangngam",  name:"ถ.นางงาม", dist:"เส้นใน" }
 ];
-
 var TIERS = [
-  { n:1, t:"ถนนเดียวกับคุณ", s:"ถ.นางงาม — เดินตรงไปได้เลย ไม่ต้องข้ามถนน" },
-  { n:2, t:"ถัดไป 1 ถนน",   s:"ถ.นครใน — เดินเข้าซอยเชื่อมจากนางงาม" },
-  { n:3, t:"ถัดไป 2 ถนน",   s:"ถ.นครนอก — เส้นริมทะเลสาบ ไกลสุดในสามเส้น" },
-  { n:4, t:"อยู่บนถนนขวาง", s:"ระยะยังไม่ยืนยัน ต้องดูจากปุ่มนำทาง" }
+  { n:1, t:"ถ.นางงาม", s:"เส้นที่บาจีปังนมสดตั้งอยู่" },
+  { n:2, t:"ถ.นครใน", s:"ถัดจากนางงาม 1 เส้น" },
+  { n:3, t:"ถ.นครนอก", s:"เส้นริมทะเลสาบ ห่างจากนางงาม 2 เส้น" },
+  { n:4, t:"ถนนขวาง", s:"ถ.หนองจิก และ ถ.สงขลาบุรี" }
 ];
-
-/* ---------- เวลาไทย ---------- */
-function bkkNow() {
-  try {
-    var p = new Intl.DateTimeFormat("en-US", {
-      timeZone:"Asia/Bangkok", weekday:"short", hour:"2-digit", minute:"2-digit", hour12:false
-    }).formatToParts(new Date());
-    var g = function (t) { for (var i=0;i<p.length;i++) if (p[i].type===t) return p[i].value; return ""; };
-    var map = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
-    var h = parseInt(g("hour"), 10); if (h === 24) h = 0;
-    return { dow: map[g("weekday")], mins: h*60 + parseInt(g("minute"),10), ok:true };
-  } catch (e) {
-    var d = new Date();
-    return { dow:d.getDay(), mins:d.getHours()*60 + d.getMinutes(), ok:false };
-  }
-}
 var THAI_DAY = ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"];
-function pad(n) { return (n < 10 ? "0" : "") + n; }
 
-function statusOf(p, now) {
-  if (p.sched === "always") return { s:"open", txt:"เข้าได้ตลอด" };
-  if (!p.sched) return { s:"unknown", txt:"ไม่ทราบเวลา" };
-  var span = p.sched[now.dow];
-  if (!span) return { s:"closed", txt:"ปิดวันนี้" };
-  if (now.mins < span[0]) return { s:"closed", txt:"เปิด " + pad(Math.floor(span[0]/60)) + ":" + pad(span[0]%60) };
-  if (now.mins >= span[1]) return { s:"closed", txt:"ปิดแล้ว" };
-  var left = span[1] - now.mins;
-  if (left <= 60) return { s:"open", txt:"อีก " + left + " นาทีปิด" };
-  return { s:"open", txt:"เปิดอยู่" };
+/* ---------------- state ---------------- */
+var me = null;          /* {lat,lng,acc,src:"live"|"manual"} */
+var fixes = {};         /* placeId -> {lat,lng,acc,ts} */
+var sortMode = "street";
+var watchId = null;
+
+try { fixes = JSON.parse(localStorage.getItem(LS) || "{}") || {}; } catch (e) { fixes = {}; }
+function saveFixes(){ try { localStorage.setItem(LS, JSON.stringify(fixes)); } catch (e) {} }
+
+/* ---------------- helpers ---------------- */
+function pad(n){ return (n<10?"0":"")+n; }
+function bkkNow(){
+  try{
+    var p = new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Bangkok",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+    var g=function(t){for(var i=0;i<p.length;i++) if(p[i].type===t) return p[i].value; return "";};
+    var map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    var h=parseInt(g("hour"),10); if(h===24) h=0;
+    return {dow:map[g("weekday")], mins:h*60+parseInt(g("minute"),10)};
+  }catch(e){ var d=new Date(); return {dow:d.getDay(), mins:d.getHours()*60+d.getMinutes()}; }
+}
+function statusOf(p,now){
+  if(p.sched==="always") return {s:"open",txt:"เข้าได้ตลอด"};
+  if(!p.sched) return {s:"unknown",txt:"ไม่ทราบเวลา"};
+  var sp=p.sched[now.dow];
+  if(!sp) return {s:"closed",txt:"ปิดวันนี้"};
+  if(now.mins<sp[0]) return {s:"closed",txt:"เปิด "+pad(Math.floor(sp[0]/60))+":"+pad(sp[0]%60)};
+  if(now.mins>=sp[1]) return {s:"closed",txt:"ปิดแล้ว"};
+  var left=sp[1]-now.mins;
+  return left<=60 ? {s:"open",txt:"อีก "+left+" นาทีปิด"} : {s:"open",txt:"เปิดอยู่"};
+}
+function haversine(a,b){
+  var R=6371000, t=Math.PI/180;
+  var dLat=(b.lat-a.lat)*t, dLng=(b.lng-a.lng)*t;
+  var s=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(a.lat*t)*Math.cos(b.lat*t)*Math.sin(dLng/2)*Math.sin(dLng/2);
+  return 2*R*Math.asin(Math.min(1,Math.sqrt(s)));
+}
+function fmtDist(m){
+  if(m<1000) return Math.round(m)+" ม.";
+  return (m/1000).toFixed(m<10000?2:1)+" กม.";
+}
+function walkMin(m){ return Math.max(1, Math.round(m/75)); } /* ~4.5 กม./ชม. */
+function originParam(){
+  if(me) return me.lat.toFixed(6)+","+me.lng.toFixed(6);
+  return FALLBACK_ORIGIN;
+}
+function gmapWalk(p){
+  var dest = fixes[p.id] ? (fixes[p.id].lat.toFixed(6)+","+fixes[p.id].lng.toFixed(6)) : p.q;
+  return "https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent(originParam())+
+         "&destination="+encodeURIComponent(dest)+"&travelmode=walking";
+}
+function gmapSearch(p){
+  var q = fixes[p.id] ? (fixes[p.id].lat.toFixed(6)+","+fixes[p.id].lng.toFixed(6)) : p.q;
+  return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
+}
+function el(tag,cls,txt){ var n=document.createElement(tag); if(cls)n.className=cls; if(txt!=null)n.textContent=txt; return n; }
+function distOf(p){
+  if(!me || !fixes[p.id]) return null;
+  return haversine(me, fixes[p.id]);
 }
 
-function gmapSearch(q) {
-  return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+/* ---------------- GPS ---------------- */
+var gpsBox=document.getElementById("gps"), gpsL1=document.getElementById("gps-l1"),
+    gpsL2=document.getElementById("gps-l2"), gpsBtn=document.getElementById("gps-btn"),
+    gpsManual=document.getElementById("gps-manual"), gpsHelp=document.getElementById("gps-help"),
+    gpsToggle=document.getElementById("gps-toggle");
+
+function setGps(state,l1,l2,help){
+  gpsBox.setAttribute("data-s",state);
+  gpsL1.textContent=l1; gpsL2.textContent=l2;
+  if(help){ gpsHelp.hidden=false; gpsHelp.textContent=help; } else { gpsHelp.hidden=true; }
 }
-function gmapWalk(q) {
-  return "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(ORIGIN) +
-         "&destination=" + encodeURIComponent(q) + "&travelmode=walking";
+function showManual(){ gpsManual.hidden=false; gpsToggle.hidden=false; gpsToggle.classList.add("on"); }
+
+function startGps(){
+  if(!navigator.geolocation){
+    setGps("error","GPS ใช้ไม่ได้","เบราว์เซอร์นี้ไม่รองรับ","กรอกพิกัดเองด้านล่างแทนได้");
+    showManual(); return;
+  }
+  setGps("init","ตำแหน่งของคุณ","กำลังขอสิทธิ์ GPS…");
+  gpsBtn.disabled=true; gpsBtn.textContent="กำลังหา…";
+  if(watchId!==null) navigator.geolocation.clearWatch(watchId);
+  watchId=navigator.geolocation.watchPosition(function(pos){
+    me={lat:pos.coords.latitude,lng:pos.coords.longitude,acc:pos.coords.accuracy,src:"live"};
+    gpsBtn.disabled=false; gpsBtn.textContent="รีเฟรช";
+    setGps("live","ตำแหน่งสดจาก GPS",
+      me.lat.toFixed(5)+", "+me.lng.toFixed(5)+"  ±"+Math.round(me.acc)+" ม.");
+    gpsManual.hidden=true; gpsToggle.hidden=false; gpsToggle.classList.remove("on");
+    render();
+  },function(err){
+    gpsBtn.disabled=false; gpsBtn.textContent="ลองใหม่";
+    var msg = err.code===1 ? "ถูกปฏิเสธสิทธิ์เข้าถึงตำแหน่ง"
+            : err.code===2 ? "หาสัญญาณ GPS ไม่ได้"
+            : "หมดเวลารอ GPS";
+    /* สัญญาณหลุดหลังจับตำแหน่งได้แล้ว: เก็บตำแหน่งล่าสุดไว้ อย่าล้างทิ้ง */
+    if(me && me.src==="live"){
+      setGps("live","ตำแหน่งล่าสุด · "+msg,
+        me.lat.toFixed(5)+", "+me.lng.toFixed(5)+"  ±"+Math.round(me.acc)+" ม.");
+      return;
+    }
+    setGps("error","GPS ยังใช้ไม่ได้", msg,
+      "ถ้าหน้านี้เปิดอยู่ในกรอบ iframe บางเบราว์เซอร์จะบล็อก GPS — กรอกพิกัดเองด้านล่างได้เลย ผลลัพธ์เหมือนกันทุกอย่าง");
+    showManual(); render();
+  },{enableHighAccuracy:true,timeout:15000,maximumAge:5000});
 }
 
-var el = function (tag, cls, txt) {
-  var n = document.createElement(tag);
-  if (cls) n.className = cls;
-  if (txt != null) n.textContent = txt;
-  return n;
-};
+gpsBtn.addEventListener("click",startGps);
+gpsToggle.addEventListener("click",function(){
+  gpsManual.hidden=!gpsManual.hidden;
+  gpsToggle.classList.toggle("on",!gpsManual.hidden);
+});
 
-function render() {
-  var now = bkkNow();
+document.getElementById("gps-set").addEventListener("click",function(){
+  var v=document.getElementById("gps-in").value.trim();
+  var m=v.match(/(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)/);
+  if(!m){ setGps("error","พิกัดไม่ถูกต้อง","ต้องเป็นรูปแบบ 7.19750, 100.59300"); return; }
+  var la=parseFloat(m[1]), ln=parseFloat(m[2]);
+  if(Math.abs(la)>90||Math.abs(ln)>180){ setGps("error","พิกัดไม่ถูกต้อง","ค่าเกินช่วงที่เป็นไปได้"); return; }
+  me={lat:la,lng:ln,acc:null,src:"manual"};
+  setGps("manual","ตำแหน่งที่กรอกเอง",la.toFixed(5)+", "+ln.toFixed(5));
+  render();
+});
 
-  /* นาฬิกา */
-  document.getElementById("clock-t").textContent = pad(Math.floor(now.mins/60)) + ":" + pad(now.mins % 60);
-  document.getElementById("clock-d").textContent = "วัน" + THAI_DAY[now.dow] + (now.ok ? " · เวลาไทย" : "");
+/* ---------------- sort switch ---------------- */
+var bGps=document.getElementById("sort-gps"), bStreet=document.getElementById("sort-street");
+bGps.addEventListener("click",function(){ if(!bGps.disabled){ sortMode="gps"; render(); }});
+bStreet.addEventListener("click",function(){ sortMode="street"; render(); });
 
-  /* ผังถนน */
-  var cs = document.getElementById("crosssec");
-  while (cs.children.length > 1) cs.removeChild(cs.lastChild);
+/* ---------------- dump / copy / clear ---------------- */
+function refreshDump(){
+  var ids=Object.keys(fixes);
+  var box=document.getElementById("dump");
+  if(!ids.length){ box.value="ยังไม่มีพิกัดที่บันทึก — กดปุ่ม “บันทึกพิกัดจุดนี้” ตอนยืนอยู่หน้าร้าน"; return; }
+  var lines=ids.map(function(id){
+    var p=PLACES.filter(function(x){return x.id===id;})[0], f=fixes[id];
+    return (p?p.name:id)+"\t"+f.lat.toFixed(6)+","+f.lng.toFixed(6)+
+           (f.acc!=null?("\t±"+Math.round(f.acc)+"ม."):"");
+  });
+  box.value="ชื่อ\tพิกัด\tความแม่นยำ\n"+lines.join("\n");
+}
+document.getElementById("copy").addEventListener("click",function(){
+  var box=document.getElementById("dump");
+  box.select(); box.setSelectionRange(0,99999);
+  try{ document.execCommand("copy"); this.textContent="คัดลอกแล้ว"; var b=this;
+       setTimeout(function(){b.textContent="คัดลอกพิกัดทั้งหมด";},1800); }catch(e){}
+});
+document.getElementById("clear").addEventListener("click",function(){
+  if(!Object.keys(fixes).length) return;
+  fixes={}; saveFixes(); render();
+});
 
-  STREETS.forEach(function (st) {
-    var col = el("div", "stcol");
-    if (st.key === "nangngam") col.setAttribute("data-you", "1");
-    var head = el("div", "sthead");
-    head.appendChild(el("span", "nm", st.name));
-    head.appendChild(el("span", "dist", st.dist));
+/* ---------------- render ---------------- */
+function render(){
+  var now=bkkNow();
+  var haveAny = me && Object.keys(fixes).length>0;
+  bGps.disabled = !haveAny;
+  if(!haveAny && sortMode==="gps") sortMode="street";
+  bGps.classList.toggle("on", sortMode==="gps");
+  bStreet.classList.toggle("on", sortMode==="street");
+
+  /* ---- alert ---- */
+  var shut=PLACES.filter(function(p){return !p.you && statusOf(p,now).s==="closed";});
+  var unsure=PLACES.filter(function(p){return !p.you && statusOf(p,now).s==="unknown";});
+  var a=document.getElementById("alert");
+  if(shut.length||unsure.length){
+    a.hidden=false;
+    var h="<b>วัน"+THAI_DAY[now.dow]+" "+pad(Math.floor(now.mins/60))+":"+pad(now.mins%60)+" — อย่าเพิ่งเดินไป</b><ul>";
+    shut.forEach(function(p){ h+="<li>"+p.name+" — "+statusOf(p,now).txt+" ("+p.hoursTxt+")</li>"; });
+    unsure.forEach(function(p){ h+="<li>"+p.name+" — ยังไม่ยืนยันเวลาเปิด</li>"; });
+    a.innerHTML=h+"</ul>";
+  } else { a.hidden=true; }
+
+  /* ---- plate builder ---- */
+  function plate(p){
+    var st=statusOf(p,now), d=distOf(p);
+    var card=el("article","plate"); card.id="p-"+p.id;
+    if(d!=null && d<=120) card.setAttribute("data-near","1");
+
+    var top=el("div","ptop");
+    var no=el("div","pno"+(p.no?"":" empty"),p.no||"?");
+    top.appendChild(no);
+    var nm=el("div","pname");
+    nm.appendChild(el("h4",null,p.name));
+    nm.appendChild(el("span","kind",p.kind));
+    top.appendChild(nm);
+    var bd=el("div","pbadges");
+    if(d!=null) bd.appendChild(el("span","pdist",fmtDist(d)+" · เดิน "+walkMin(d)+" นาที"));
+    var badge=el("span","pstatus",st.txt); badge.setAttribute("data-s",st.s);
+    bd.appendChild(badge);
+    top.appendChild(bd);
+    card.appendChild(top);
+
+    [["ที่อยู่",p.addr,false],["เวลา",p.hoursTxt,true],["หมายเหตุ",p.note,false]].forEach(function(r){
+      if(!r[1]) return;
+      var row=el("div","prow");
+      row.appendChild(el("span","lbl",r[0]));
+      row.appendChild(el("span","val"+(r[2]?" mono":""),r[1]));
+      card.appendChild(row);
+    });
+
+    if(fixes[p.id]){
+      var f=fixes[p.id];
+      var ok=el("div","fixed");
+      ok.appendChild(el("b",null,"พิกัดจริงบันทึกแล้ว"));
+      ok.appendChild(el("span","co",f.lat.toFixed(6)+", "+f.lng.toFixed(6)+(f.acc!=null?(" ±"+Math.round(f.acc)+"ม."):"")));
+      var un=el("button","linkish","ลบ"); un.type="button";
+      un.addEventListener("click",function(){ delete fixes[p.id]; saveFixes(); render(); });
+      ok.appendChild(un);
+      card.appendChild(ok);
+    } else if(p.flag){
+      var fl=el("div","flag");
+      fl.innerHTML="<b>ต้องเช็ก</b> — "+p.flag;
+      card.appendChild(fl);
+    }
+
+    var acts=el("div","pacts");
+    var b1=el("a","btn solid","นำทางเดิน"); b1.href=gmapWalk(p); b1.target="_blank"; b1.rel="noopener";
+    var b2=el("a","btn ghost","เปิดใน Maps"); b2.href=gmapSearch(p); b2.target="_blank"; b2.rel="noopener";
+    if(!p.you) acts.appendChild(b1);
+    acts.appendChild(b2);
+    var b3=el("button","btn mark", fixes[p.id] ? "อัปเดตพิกัดจุดนี้" : "บันทึกพิกัดจุดนี้");
+    b3.type="button";
+    if(fixes[p.id]) b3.setAttribute("data-done","1");
+    if(!me){ b3.disabled=true; b3.textContent="ต้องเปิด GPS ก่อนถึงบันทึกได้"; }
+    b3.addEventListener("click",function(){
+      if(!me) return;
+      fixes[p.id]={lat:me.lat,lng:me.lng,acc:me.acc,ts:Date.now()};
+      saveFixes(); sortMode = "gps"; render();
+      var t=document.getElementById("p-"+p.id);
+      if(t) t.scrollIntoView({behavior:"smooth",block:"center"});
+    });
+    acts.appendChild(b3);
+    card.appendChild(acts);
+    return card;
+  }
+
+  /* ---- list ---- */
+  var box=document.getElementById("tiers");
+  box.innerHTML="";
+
+  if(sortMode==="gps"){
+    var ranked=PLACES.slice().sort(function(x,y){
+      var dx=distOf(x), dy=distOf(y);
+      if(dx==null&&dy==null) return x.tier-y.tier;
+      if(dx==null) return 1;
+      if(dy==null) return -1;
+      return dx-dy;
+    });
+    var sec=el("section","tier");
+    var th=el("div","tierhead");
+    th.appendChild(el("span","tiernum","GPS"));
+    th.appendChild(el("h3",null,"ใกล้คุณที่สุดก่อน"));
+    th.appendChild(el("span","sub","วัดเส้นตรงจากตำแหน่งคุณถึงพิกัดที่บันทึกไว้ · จุดที่ยังไม่บันทึกพิกัดจะอยู่ท้ายรายการ"));
+    sec.appendChild(th);
+    var pl=el("div","plates");
+    ranked.forEach(function(p){ pl.appendChild(plate(p)); });
+    sec.appendChild(pl);
+    box.appendChild(sec);
+  } else {
+    TIERS.forEach(function(tier){
+      var list=PLACES.filter(function(p){return p.tier===tier.n;});
+      if(!list.length) return;
+      var sec=el("section","tier");
+      var th=el("div","tierhead");
+      th.appendChild(el("span","tiernum",String(tier.n)));
+      th.appendChild(el("h3",null,tier.t));
+      th.appendChild(el("span","sub",tier.s));
+      sec.appendChild(th);
+      var pl=el("div","plates");
+      list.forEach(function(p){ pl.appendChild(plate(p)); });
+      sec.appendChild(pl);
+      box.appendChild(sec);
+    });
+  }
+
+  /* ---- schematic ---- */
+  var cs=document.getElementById("crosssec");
+  while(cs.children.length>1) cs.removeChild(cs.lastChild);
+  STREETS.forEach(function(stt){
+    var col=el("div","stcol");
+    if(stt.key==="nangngam") col.setAttribute("data-you","1");
+    var head=el("div","sthead");
+    head.appendChild(el("span","nm",stt.name));
+    head.appendChild(el("span","dist",stt.dist));
     col.appendChild(head);
-
-    PLACES.filter(function (p) { return p.street === st.key; })
-      .sort(function (a, b) {
-        if (a.no && b.no) return parseInt(a.no,10) - parseInt(b.no,10);
-        if (a.no) return -1;
-        if (b.no) return 1;
-        return 0;
+    PLACES.filter(function(p){return p.street===stt.key;})
+      .sort(function(x,y){
+        if(x.no&&y.no) return parseInt(x.no,10)-parseInt(y.no,10);
+        if(x.no) return -1; if(y.no) return 1; return 0;
       })
-      .forEach(function (p) {
-        var c = el("button", "chip");
-        c.type = "button";
-        if (p.you) c.setAttribute("data-you", "1");
-        c.appendChild(el("span", "cn", (p.you ? "► " : "") + p.short));
-        c.appendChild(el("span", "cno", p.no ? "เลขที่ " + p.no : "ไม่ทราบเลขที่"));
-        c.addEventListener("click", function () {
-          var target = document.getElementById("p-" + p.id);
-          if (target) target.scrollIntoView({ behavior:"smooth", block:"center" });
+      .forEach(function(p){
+        var c=el("button","chip"); c.type="button";
+        if(p.you) c.setAttribute("data-you","1");
+        if(fixes[p.id]) c.setAttribute("data-fix","1");
+        c.appendChild(el("span","cn",(p.you?"► ":"")+p.short));
+        var d=distOf(p);
+        c.appendChild(el("span","cno", d!=null ? fmtDist(d) : (fixes[p.id]?"พิกัดแล้ว":(p.no?"เลขที่ "+p.no:"ไม่ทราบเลขที่"))));
+        c.addEventListener("click",function(){
+          var t=document.getElementById("p-"+p.id);
+          if(t) t.scrollIntoView({behavior:"smooth",block:"center"});
         });
         col.appendChild(c);
       });
     cs.appendChild(col);
   });
-
-  var cross = el("div", "crossnote");
-  cross.innerHTML = "<b>ถนนขวาง</b> — บ้านอ้ายเหลียน อยู่ ถ.หนองจิก · TCDC สงขลา อยู่ ถ.สงขลาบุรี " +
-                    "ทั้งสองเส้นตัดผ่านย่านนี้ แต่ยังไม่ได้ยืนยันว่าตัดตรงช่วงไหน";
+  var cross=el("div","crossnote");
+  cross.innerHTML="<b>ถนนขวาง</b> — บ้านอ้ายเหลียน อยู่ ถ.หนองจิก · TCDC สงขลา อยู่ ถ.สงขลาบุรี ทั้งสองเส้นตัดผ่านย่านนี้ แต่ยังไม่ได้ยืนยันว่าตัดช่วงไหน";
   cs.appendChild(cross);
 
-  /* แจ้งเตือนของวันนี้ */
-  var shut = PLACES.filter(function (p) { return !p.you && statusOf(p, now).s === "closed"; });
-  var unsure = PLACES.filter(function (p) { return !p.you && statusOf(p, now).s === "unknown"; });
-  var a = document.getElementById("alert");
-  if (shut.length || unsure.length) {
-    a.hidden = false;
-    var html = "<b>วัน" + THAI_DAY[now.dow] + " " + pad(Math.floor(now.mins/60)) + ":" + pad(now.mins % 60) + " — อย่าเพิ่งเดินไป</b>";
-    html += "<ul>";
-    shut.forEach(function (p) {
-      html += "<li>" + p.name + " — " + statusOf(p, now).txt + " (" + p.hoursTxt + ")</li>";
-    });
-    unsure.forEach(function (p) { html += "<li>" + p.name + " — ยังไม่ยืนยันเวลาเปิด ควรโทรเช็กก่อน</li>"; });
-    html += "</ul>";
-    a.innerHTML = html;
-  }
-
-  /* รายการตามระยะ */
-  var box = document.getElementById("tiers");
-  box.innerHTML = "";
-  TIERS.forEach(function (tier) {
-    var list = PLACES.filter(function (p) { return p.tier === tier.n; });
-    if (!list.length) return;
-
-    var sec = el("section", "tier");
-    var th = el("div", "tierhead");
-    th.appendChild(el("span", "tiernum", String(tier.n)));
-    th.appendChild(el("h3", null, tier.t));
-    th.appendChild(el("span", "sub", tier.s));
-    sec.appendChild(th);
-
-    var plates = el("div", "plates");
-    list.forEach(function (p) {
-      var st = statusOf(p, now);
-      var card = el("article", "plate");
-      card.id = "p-" + p.id;
-
-      var top = el("div", "ptop");
-      var no = el("div", "pno" + (p.no ? "" : " empty"), p.no || "?");
-      if (!p.no) no.title = "ยังไม่พบเลขที่บ้าน";
-      top.appendChild(no);
-      var nm = el("div", "pname");
-      nm.appendChild(el("h4", null, p.name));
-      nm.appendChild(el("span", "kind", p.kind));
-      top.appendChild(nm);
-      var badge = el("span", "pstatus", st.txt);
-      badge.setAttribute("data-s", st.s);
-      top.appendChild(badge);
-      card.appendChild(top);
-
-      [["ที่อยู่", p.addr, false], ["เวลา", p.hoursTxt, true], ["หมายเหตุ", p.note, false]]
-        .forEach(function (r) {
-          if (!r[1]) return;
-          var row = el("div", "prow");
-          row.appendChild(el("span", "lbl", r[0]));
-          row.appendChild(el("span", "val" + (r[2] ? " mono" : ""), r[1]));
-          card.appendChild(row);
-        });
-
-      if (p.flag) {
-        var f = el("div", "flag");
-        f.innerHTML = "<b>ต้องเช็ก</b> — " + p.flag;
-        card.appendChild(f);
-      }
-
-      var acts = el("div", "pacts");
-      var b1 = el("a", "btn solid", "นำทางเดิน");
-      b1.href = gmapWalk(p.q); b1.target = "_blank"; b1.rel = "noopener";
-      var b2 = el("a", "btn ghost", "เปิดใน Maps");
-      b2.href = gmapSearch(p.q); b2.target = "_blank"; b2.rel = "noopener";
-      if (!p.you) acts.appendChild(b1);
-      acts.appendChild(b2);
-      card.appendChild(acts);
-
-      plates.appendChild(card);
-    });
-    sec.appendChild(plates);
-    box.appendChild(sec);
-  });
+  refreshDump();
 }
 
 render();
-setInterval(render, 60000);
+startGps();
+setInterval(function(){ render(); },60000);
 </script>
